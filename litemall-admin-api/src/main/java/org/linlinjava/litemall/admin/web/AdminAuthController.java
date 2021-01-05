@@ -25,7 +25,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import sun.misc.BASE64Encoder;
+import org.apache.commons.codec.binary.Base64;
 
 import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
@@ -75,8 +75,8 @@ public class AdminAuthController {
         try {
             ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
             ImageIO.write(image, "jpeg", outputStream);
-            BASE64Encoder encoder = new BASE64Encoder();
-            String base64 = encoder.encode(outputStream.toByteArray());
+
+            String base64 =  Base64.encodeBase64String(outputStream.toByteArray());
             String captchaBase64 = "data:image/jpeg;base64," + base64.replaceAll("\r\n", "");
             return captchaBase64;
         } catch (IOException e) {
