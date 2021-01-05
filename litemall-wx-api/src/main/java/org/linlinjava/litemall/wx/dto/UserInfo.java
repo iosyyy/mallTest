@@ -9,6 +9,19 @@ public class UserInfo {
     private String language;
     private Byte gender;
 
+    @Override
+    public String toString() {
+        return "UserInfo{" +
+                "nickName='" + nickName + '\'' +
+                ", avatarUrl='" + avatarUrl + '\'' +
+                ", country='" + country + '\'' +
+                ", province='" + province + '\'' +
+                ", city='" + city + '\'' +
+                ", language='" + language + '\'' +
+                ", gender=" + gender +
+                '}';
+    }
+
     public String getCountry() {
         return country;
     }
