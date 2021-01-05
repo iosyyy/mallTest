@@ -7,21 +7,15 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.linlinjava.litemall.core.notify.NotifyService;
 import org.linlinjava.litemall.core.notify.NotifyType;
-import org.linlinjava.litemall.core.util.CharUtil;
-import org.linlinjava.litemall.core.util.JacksonUtil;
-import org.linlinjava.litemall.core.util.RegexUtil;
-import org.linlinjava.litemall.core.util.ResponseUtil;
+import org.linlinjava.litemall.core.util.*;
 import org.linlinjava.litemall.core.util.bcrypt.BCryptPasswordEncoder;
 import org.linlinjava.litemall.db.domain.LitemallUser;
-import org.linlinjava.litemall.db.service.CouponAssignService;
 import org.linlinjava.litemall.db.service.LitemallUserService;
 import org.linlinjava.litemall.wx.annotation.LoginUser;
 import org.linlinjava.litemall.wx.dto.UserInfo;
-import org.linlinjava.litemall.wx.dto.UserToken;
 import org.linlinjava.litemall.wx.dto.WxLoginInfo;
 import org.linlinjava.litemall.wx.service.CaptchaCodeManager;
 import org.linlinjava.litemall.wx.service.UserTokenManager;
-import org.linlinjava.litemall.core.util.IpUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.annotation.Validated;
@@ -52,9 +46,6 @@ public class WxAuthController {
 
     @Autowired
     private NotifyService notifyService;
-
-    @Autowired
-    private CouponAssignService couponAssignService;
 
     /**
      * 账号登录
@@ -121,7 +112,8 @@ public class WxAuthController {
         if (code == null || userInfo == null) {
             return ResponseUtil.badArgument();
         }
-
+        System.out.println(code);
+        System.out.println(userInfo);
         String sessionKey = null;
         String openId = null;
         try {
@@ -153,8 +145,6 @@ public class WxAuthController {
 
             userService.add(user);
 
-            // 新用户发送注册优惠券
-            couponAssignService.assignForRegister(user.getId());
         } else {
             user.setLastLoginTime(LocalDateTime.now());
             user.setLastLoginIp(IpUtil.getIpAddr(request));
@@ -307,8 +297,6 @@ public class WxAuthController {
         user.setLastLoginIp(IpUtil.getIpAddr(request));
         userService.add(user);
 
-        // 给新用户发送注册优惠券
-        couponAssignService.assignForRegister(user.getId());
 
         // userInfo
         UserInfo userInfo = new UserInfo();
@@ -390,8 +378,9 @@ public class WxAuthController {
 
         //判断验证码是否正确
         String cacheCode = CaptchaCodeManager.getCachedCaptcha(mobile);
-        if (cacheCode == null || cacheCode.isEmpty() || !cacheCode.equals(code))
+        if (cacheCode == null || cacheCode.isEmpty() || !cacheCode.equals(code)) {
             return ResponseUtil.fail(AUTH_CAPTCHA_UNMATCH, "验证码错误");
+        }
 
         List<LitemallUser> userList = userService.queryByMobile(mobile);
         LitemallUser user = null;
@@ -444,8 +433,9 @@ public class WxAuthController {
 
         //判断验证码是否正确
         String cacheCode = CaptchaCodeManager.getCachedCaptcha(mobile);
-        if (cacheCode == null || cacheCode.isEmpty() || !cacheCode.equals(code))
+        if (cacheCode == null || cacheCode.isEmpty() || !cacheCode.equals(code)) {
             return ResponseUtil.fail(AUTH_CAPTCHA_UNMATCH, "验证码错误");
+        }
 
         List<LitemallUser> userList = userService.queryByMobile(mobile);
         LitemallUser user = null;

@@ -15,7 +15,6 @@ Page({
     floorGoods: [],
     banner: [],
     channel: [],
-    coupon: [],
     goodsCount: 0
   },
 
@@ -47,7 +46,6 @@ Page({
           banner: res.data.banner,
           groupons: res.data.grouponList,
           channel: res.data.channel,
-          coupon: res.data.couponList
         });
       }
     });
@@ -122,20 +120,5 @@ Page({
   },
   onUnload: function() {
     // 页面关闭
-  },
-  getCoupon(e) {
-    let couponId = e.currentTarget.dataset.index
-    util.request(api.CouponReceive, {
-      couponId: couponId
-    }, 'POST').then(res => {
-      if (res.errno === 0) {
-        wx.showToast({
-          title: "领取成功"
-        })
-      }
-      else{
-        util.showErrorToast(res.errmsg);
-      }
-    })
-  },
+  }
 })

@@ -20,15 +20,14 @@ import org.linlinjava.litemall.core.qcode.QCodeService;
 import org.linlinjava.litemall.core.system.SystemConfig;
 import org.linlinjava.litemall.core.task.TaskService;
 import org.linlinjava.litemall.core.util.DateTimeUtil;
+import org.linlinjava.litemall.core.util.IpUtil;
 import org.linlinjava.litemall.core.util.JacksonUtil;
 import org.linlinjava.litemall.core.util.ResponseUtil;
 import org.linlinjava.litemall.db.domain.*;
 import org.linlinjava.litemall.db.service.*;
-import org.linlinjava.litemall.db.util.CouponUserConstant;
 import org.linlinjava.litemall.db.util.GrouponConstant;
 import org.linlinjava.litemall.db.util.OrderHandleOption;
 import org.linlinjava.litemall.db.util.OrderUtil;
-import org.linlinjava.litemall.core.util.IpUtil;
 import org.linlinjava.litemall.wx.task.OrderUnpaidTask;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -97,12 +96,7 @@ public class WxOrderService {
     private ExpressService expressService;
     @Autowired
     private LitemallCommentService commentService;
-    @Autowired
-    private LitemallCouponService couponService;
-    @Autowired
-    private LitemallCouponUserService couponUserService;
-    @Autowired
-    private CouponVerifyService couponVerifyService;
+
     @Autowired
     private TaskService taskService;
     @Autowired
@@ -196,7 +190,6 @@ public class WxOrderService {
         orderVo.put("mobile", order.getMobile());
         orderVo.put("address", order.getAddress());
         orderVo.put("goodsPrice", order.getGoodsPrice());
-        orderVo.put("couponPrice", order.getCouponPrice());
         orderVo.put("freightPrice", order.getFreightPrice());
         orderVo.put("actualPrice", order.getActualPrice());
         orderVo.put("orderStatusText", OrderUtil.orderStatusText(order));
@@ -340,17 +333,7 @@ public class WxOrderService {
             }
         }
 
-        // 获取可用的优惠券信息
-        // 使用优惠券减免的金额
-        BigDecimal couponPrice = new BigDecimal(0);
-        // 如果couponId=0则没有优惠券，couponId=-1则不使用优惠券
-        if (couponId != 0 && couponId != -1) {
-            LitemallCoupon coupon = couponVerifyService.checkCoupon(userId, couponId, userCouponId, checkedGoodsPrice, checkedGoodsList);
-            if (coupon == null) {
-                return ResponseUtil.badArgumentValue();
-            }
-            couponPrice = coupon.getDiscount();
-        }
+
 
 
         // 根据订单商品总价计算运费，满足条件（例如88元）则免运费，否则需要支付运费（例如8元）；
@@ -363,7 +346,7 @@ public class WxOrderService {
         BigDecimal integralPrice = new BigDecimal(0);
 
         // 订单费用
-        BigDecimal orderTotalPrice = checkedGoodsPrice.add(freightPrice).subtract(couponPrice).max(new BigDecimal(0));
+        BigDecimal orderTotalPrice = checkedGoodsPrice.add(freightPrice).max(new BigDecimal(0));
         // 最终支付费用
         BigDecimal actualPrice = orderTotalPrice.subtract(integralPrice);
 
@@ -381,7 +364,6 @@ public class WxOrderService {
         order.setAddress(detailedAddress);
         order.setGoodsPrice(checkedGoodsPrice);
         order.setFreightPrice(freightPrice);
-        order.setCouponPrice(couponPrice);
         order.setIntegralPrice(integralPrice);
         order.setOrderPrice(orderTotalPrice);
         order.setActualPrice(actualPrice);
@@ -436,14 +418,6 @@ public class WxOrderService {
             }
         }
 
-        // 如果使用了优惠券，设置优惠券使用状态
-        if (couponId != 0 && couponId != -1) {
-            LitemallCouponUser couponUser = couponUserService.findById(userCouponId);
-            couponUser.setStatus(CouponUserConstant.STATUS_USED);
-            couponUser.setUsedTime(LocalDateTime.now());
-            couponUser.setOrderId(orderId);
-            couponUserService.update(couponUser);
-        }
 
         //如果是团购项目，添加团购信息
         if (grouponRulesId != null && grouponRulesId > 0) {
@@ -539,8 +513,6 @@ public class WxOrderService {
             }
         }
 
-        // 返还优惠券
-        releaseCoupon(orderId);
 
         return ResponseUtil.ok();
     }
@@ -1019,23 +991,5 @@ public class WxOrderService {
         orderService.updateWithOptimisticLocker(order);
 
         return ResponseUtil.ok();
-    }
-
-    /**
-     * 取消订单/退款返还优惠券
-     * <br/>
-     * @param orderId
-     * @return void
-     * @author Tyson
-     * @date 2020/6/8/0008 1:41
-     */
-    public void releaseCoupon(Integer orderId) {
-        List<LitemallCouponUser> couponUsers = couponUserService.findByOid(orderId);
-        for (LitemallCouponUser couponUser: couponUsers) {
-            // 优惠券状态设置为可使用
-            couponUser.setStatus(CouponUserConstant.STATUS_USABLE);
-            couponUser.setUpdateTime(LocalDateTime.now());
-            couponUserService.update(couponUser);
-        }
     }
 }

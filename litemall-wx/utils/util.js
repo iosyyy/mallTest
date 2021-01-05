@@ -20,7 +20,7 @@ function formatNumber(n) {
 }
 
 /**
- * 封封微信的的request
+ * 封装微信的request
  */
 function request(url, data = {}, method = "GET") {
   return new Promise(function(resolve, reject) {
@@ -64,7 +64,6 @@ function request(url, data = {}, method = "GET") {
 }
 
 function redirect(url) {
-
   //判断页面是否需要登录
   if (false) {
     wx.redirectTo({

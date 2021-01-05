@@ -95,17 +95,6 @@ Page({
       });
     };
   },
-  goCoupon() {
-    if (this.data.hasLogin) {
-      wx.navigateTo({
-        url: "/pages/ucenter/couponList/couponList"
-      });
-    } else {
-      wx.navigateTo({
-        url: "/pages/auth/login/login"
-      });
-    };
-  },
   goGroupon() {
     if (this.data.hasLogin) {
       wx.navigateTo({
