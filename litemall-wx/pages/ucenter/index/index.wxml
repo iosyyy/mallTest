@@ -66,6 +66,10 @@
       <image class='user_column_item_image' src='/static/images/address.png'></image>
       <view class='user_column_item_text'>地址管理</view>
     </view>
+    <view class='user_column_item' bindtap='goAddress'>
+      <image class='user_column_item_image' src='/static/images/switch.png'></image>
+      <view class='user_column_item_text'>切换语言</view>
+    </view>
   </view>
   <view class='separate'></view>
 
@@ -74,10 +78,6 @@
   </view>
   <view class='user_column'>
 
-    <button class="user_column_item_phone" open-type="getPhoneNumber" bindgetphonenumber="bindPhoneNumber">
-      <image class='user_column_item_image' src='/static/images/mobile.png'></image>
-      <view class='user_column_item_text'>绑定手机</view>
-    </button>
     <view class='user_column_item' bindtap='goHelp'>
       <image class='user_column_item_image' src='/static/images/help.png'></image>
       <view class='user_column_item_text'>帮助中心</view>
