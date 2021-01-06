@@ -3,7 +3,7 @@
     <view class="address-item" bindtap="selectAddress" wx:if="{{checkedAddress.id > 0}}">
       <view class="l">
         <text class="name">{{checkedAddress.name}}</text>
-        <text class="default" wx:if="{{checkedAddress.isDefault}}">默认</text>
+        <text class="default" wx:if="{{checkedAddress.isDefault}}">{{languageMap['默认']}}</text>
       </view>
       <view class="m">
         <text class="mobile">{{checkedAddress.tel}}</text>
@@ -15,28 +15,7 @@
     </view>
     <view class="address-item address-empty" bindtap="selectAddress" wx:else>
       <view class="m">
-        还没有收货地址，去添加
-      </view>
-      <view class="r">
-        <van-icon name="arrow" />      
-      </view>
-    </view>
-  </view>
-
-  <view class="coupon-box">
-    <view class="coupon-item" bindtap="selectCoupon">
-      <view class="l" wx:if="{{couponId == 0}}">
-        <text class="name">没有可用的优惠券</text>
-        <text class="txt">0张</text>
-      </view>
-      <view class="l" wx:elif="{{couponId == -1}}">
-        <text class="name">优惠券</text>
-        <text class="txt">{{availableCouponLength}}张</text>
-      </view>
-      <view class="l" wx:else>
-        <text class="name">优惠券</text>
-        <text class="txt">-￥{{couponPrice}}元</text>
-      </view>      
+{{languageMap['还没有收货地址，去添加']}}      </view>
       <view class="r">
         <van-icon name="arrow" />      
       </view>
@@ -44,13 +23,13 @@
   </view>
 
   <view class="message-box">
-    <input class="message-item" bindinput="bindMessageInput" placeholder="如需要，请输入留言" value="{{message}}" />
+    <input class="message-item" bindinput="bindMessageInput" placeholder="{{languageMap['如需要，请输入留言']}}" value="{{message}}" />
   </view>
 
   <view class="order-box">
     <view class="order-item">
       <view class="l">
-        <text class="name">商品合计</text>
+        <text class="name">{{languageMap['商品合计']}}</text>
       </view>
       <view class="r">
         <text class="txt">￥{{goodsTotalPrice}}元</text>
@@ -58,18 +37,10 @@
     </view>
     <view class="order-item">
       <view class="l">
-        <text class="name">运费</text>
+        <text class="name">{{languageMap['运费']}}</text>
       </view>
       <view class="r">
         <text class="txt">￥{{freightPrice}}元</text>
-      </view>
-    </view>
-    <view class="order-item no-border">
-      <view class="l">
-        <text class="name">优惠券</text>
-      </view>
-      <view class="r">
-        <text class="txt">-￥{{couponPrice}}元</text>
       </view>
     </view>
   </view>
@@ -91,7 +62,7 @@
   </view>
 
   <view class="order-total">
-    <view class="l">实付：￥{{actualPrice}}</view>
-    <view class="r" bindtap="submitOrder">去付款</view>
+    <view class="l">{{languageMap['实付']}}：￥{{actualPrice}}</view>
+    <view class="r" bindtap="submitOrder">{{languageMap['去付款']}}</view>
   </view>
 </view>

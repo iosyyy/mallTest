@@ -7,7 +7,7 @@
   <!-- 分享 -->
   <view class='goods_name'>
     <view class='goods_name_left'>{{goods.name}}</view>
-    <view hidden="{{!canShare}}" class="goods_name_right" bindtap="shareFriendOrCircle">分享</view>
+    <view hidden="{{!canShare}}" class="goods_name_right" bindtap="shareFriendOrCircle">{{languageMap['分享']}}</view>
   </view>
   <view class="share-pop-box" hidden="{{!openShare}}">
     <view class="share-pop">
@@ -17,15 +17,15 @@
       <view class='share-info'>
         <button class="sharebtn" open-type="share" wx:if="{{!isGroupon}}">
           <image class='sharebtn_image' src='/static/images/wechat.png'></image>
-          <view class='sharebtn_text'>分享给好友</view>
+          <view class='sharebtn_text'>{{languageMap['分享给好友']}}</view>
         </button>
         <button  class="savesharebtn" open-type="openSetting" bindopensetting="handleSetting" wx:if="{{(!isGroupon) && (!canWrite)}}" >
           <image class='sharebtn_image' src='/static/images/friend.png'></image>
-          <view class='sharebtn_text'>生成海报</view>
+          <view class='sharebtn_text'>{{languageMap['生成海报']}}</view>
         </button>
         <button class="savesharebtn" bindtap="saveShare" wx:if="{{!isGroupon && canWrite}}">
           <image class='sharebtn_image' src='/static/images/friend.png'></image>
-          <view class='sharebtn_text'>生成海报</view>
+          <view class='sharebtn_text'>{{languageMap['生成海报']}}</view>
         </button>
       </view>
     </view>
@@ -35,8 +35,8 @@
     <view class="c">
       <text class="desc">{{goods.brief}}</text>
       <view class="price">
-        <view class="counterPrice">原价：￥{{goods.counterPrice}}</view>
-        <view class="retailPrice">现价：￥{{checkedSpecPrice}}</view>
+        <view class="counterPrice">{{languageMap['原价']}}：￥{{goods.counterPrice}}</view>
+        <view class="retailPrice">{{languageMap['现价']}}：￥{{checkedSpecPrice}}</view>
       </view>
 
       <view class="brand" wx:if="{{brand.name}}">
@@ -53,9 +53,9 @@
   <view class="comments" wx:if="{{comment.count > 0}}">
     <view class="h">
       <navigator url="/pages/comment/comment?valueId={{goods.id}}&type=0">
-        <text class="t">评价({{comment.count > 999 ? '999+' : comment.count}})</text>
+        <text class="t">({{languageMap['评价']+comment.count > 999 ? '999+' : comment.count}})</text>
         <view class="i">
-          查看全部
+          {{languageMap['查看全部']}}
           <van-icon name="arrow" />
         </view>
       </navigator>
@@ -76,14 +76,14 @@
           <image class="img" wx:for="{{item.picList}}" wx:key="*this" wx:for-item="iitem" src="{{iitem}} "></image>
         </view>
         <view class="customer-service" wx:if="{{item.adminContent}}">
-          <text class="u">商家回复：</text>
+          <text class="u">{{languageMap['商家回复']}}：</text>
           <text class="c">{{item.adminContent}}</text>
         </view>
       </view>
     </view>
   </view>
   <view class="goods-attr">
-    <view class="t">商品参数</view>
+    <view class="t">{{languageMap['商品参数']}}</view>
     <view class="l">
       <view class="item" wx:for="{{attribute}}" wx:key="name">
         <text class="left">{{item.attribute}}</text>
@@ -100,7 +100,7 @@
   <view class="common-problem">
     <view class="h">
       <view class="line"></view>
-      <text class="title">常见问题</text>
+      <text class="title">{{languageMap['常见问题']}}</text>
     </view>
     <view class="b">
       <view class="item" wx:for="{{issueList}}" wx:key="id">
@@ -119,7 +119,7 @@
   <view class="related-goods" wx:if="{{relatedGoods.length > 0}}">
     <view class="h">
       <view class="line"></view>
-      <text class="title">大家都在看</text>
+      <text class="title">{{languageMap['大家都在看']}}</text>
     </view>
     <view class="b">
       <view class="item" wx:for="{{relatedGoods}}" wx:key="id">

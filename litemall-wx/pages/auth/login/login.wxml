@@ -2,6 +2,6 @@
   <view class="login-box">
     <button type="primary"
      class="wx-login-btn" 
-     bindgetuserinfo="wxLogin">微信直接登录</button>
+     bindgetuserinfo="wxLogin">{{languageMap['微信直接登录']}}</button>
   </view>
 </view>
