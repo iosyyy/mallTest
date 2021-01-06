@@ -226,7 +226,16 @@ Page({
     this.setData({
       actionSheetHidden:false
     })
-  },listenerActionSheet(){
+  },
+  listenerActionSheet(){
+    this.setData({
+      actionSheetHidden:true
+    })
+  },
+  changeLanguage(e){
+    var index = e.target.dataset.index
+    console.log("index:"+index);
+    util.changeLanguage(index)
     this.setData({
       actionSheetHidden:true
     })

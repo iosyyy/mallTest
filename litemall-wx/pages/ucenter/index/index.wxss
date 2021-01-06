@@ -25,6 +25,17 @@ page {
   width: 148rpx;
   border-radius: 50%;
 }
+.bababa{
+  padding: 0;
+  height: 90rpx;
+}
+
+.lalala{
+  margin: 0;
+  font-size: 60rpx;
+  line-height: 90rpx;
+  height: 100%;
+}
 
 .profile-info .info {
   flex: 1;

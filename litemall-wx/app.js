@@ -26,6 +26,7 @@ App({
     });
   },
   globalData: {
-    hasLogin: false
+    hasLogin: false,
+    languageMap:null
   }
 })
