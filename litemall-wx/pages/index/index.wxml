@@ -3,7 +3,7 @@
 <view class="search">
     <navigator url="/pages/search/search" class="input">
       <van-icon name="search"/>
-      <text class="txt">商品搜索, 共{{goodsCount}}款好物</text>
+      <text class="txt">{{languageMap['商品搜索, 共 ']}}{{goodsCount}}{{languageMap['款好物']}}</text>
     </navigator>
   </view>
   <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
@@ -30,7 +30,7 @@
       <view class="title">
         <view>
           <navigator url="/pages/groupon/grouponList/grouponList">
-            <text class="txt">团购专区</text>
+            <text class="txt">{{languageMap['团购专区']}}</text>
           </navigator>
         </view>
       </view>
@@ -43,15 +43,15 @@
             <view class="text">
               <view class="header">
                 <text class="name">{{item.name}}</text>
-                <van-tag type="primary">{{item.grouponMember}}人成团</van-tag>
+                <van-tag type="primary">{{item.grouponMember}}{{languageMap['人成团']}}</van-tag>
               </view>
               <view class="expire">
-                <van-tag round type="warning">有效期至 {{item.expireTime}}</van-tag>
+                <van-tag round type="warning">{{languageMap['有效期至']}} {{item.expireTime}}</van-tag>
               </view>
               <text class="desc">{{item.brief}}</text>
               <view class="price">
-                <view class="counterPrice">现价：￥{{item.retailPrice}}</view>
-                <view class="retailPrice">团购价：￥{{item.grouponPrice}}</view>
+                <view class="counterPrice">{{languageMap['现价：']}}￥{{item.retailPrice}}</view>
+                <view class="retailPrice">{{languageMap['团购价：']}}￥{{item.grouponPrice}}</view>
               </view>
             </view>
           </view>
@@ -63,7 +63,7 @@
   <view class="a-section a-brand">
     <view class="h">
       <navigator url="../brand/brand">
-        <text class="txt">品牌制造商直供</text>
+        <text class="txt">{{languageMap['品牌制造商直供']}}</text>
       </navigator>
     </view>
     <view class="b">
@@ -163,7 +163,7 @@
       </block>
     </view>
     <navigator url="/pages/category/category?id={{item.id}}" class="t" wx:if="{{item.goodsList.length>0}}">
-      <view class="txt">{{'更多'+item.name+'好物 >'}}</view>
+      <view class="txt">{{languageMap['更多']+item.name+languageMap['好物 >']}}</view>
     </navigator>
   </view>
 </view>

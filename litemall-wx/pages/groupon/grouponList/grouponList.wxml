@@ -8,15 +8,15 @@
           <view class="text">
             <view class="header">
               <text class="name">{{item.name}}</text>
-              <van-tag type="primary">{{item.grouponMember}}人成团</van-tag>
+              <van-tag type="primary">{{item.grouponMember}}{{languageMap['人成团']}}</van-tag>
             </view>
             <view class="expire">
-              <van-tag round type="warning">有效期至 {{item.expireTime}}</van-tag>
+              <van-tag round type="warning">{{languageMap['有效期至']}} {{item.expireTime}}</van-tag>
             </view>            
             <text class="desc">{{item.brief}}</text>
             <view class="price">
-              <view class="counterPrice">现价：￥{{item.retailPrice}}</view>
-              <view class="retailPrice">团购价：￥{{item.grouponPrice}}</view>
+              <view class="counterPrice">{{languageMap['现价：']}}￥{{item.retailPrice}}</view>
+              <view class="retailPrice">{{languageMap['团购价：']}}￥{{item.grouponPrice}}</view>
             </view>
           </view>
         </view>
@@ -24,8 +24,8 @@
     </view>
 
     <view class="page" wx:if="{{showPage}}">
-      <view class="prev {{ page <= 1 ? 'disabled' : ''}}" bindtap="prevPage">上一页</view>
-      <view class="next {{ (count / limit) < page ? 'disabled' : ''}}" bindtap="nextPage">下一页</view>
+      <view class="prev {{ page <= 1 ? 'disabled' : ''}}" bindtap="prevPage">{{languageMap['上一页']}}</view>
+      <view class="next {{ (count / limit) < page ? 'disabled' : ''}}" bindtap="nextPage">{{languageMap['下一页']}}</view>
     </view>
   </scroll-view>
 </view>

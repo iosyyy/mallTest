@@ -13,15 +13,15 @@
   <view class="sort">
     <view class="sort-box">
       <view class="item {{currentSortType == 'default' ? 'active' : ''}}" bindtap="openSortFilter" id="defaultSort">
-        <text class="txt">综合</text>
+        <text class="txt">{{languageMap['综合']}}</text>
       </view>
       <view class="item {{currentSortType == 'price' ? 'active' : ''}}" bindtap="openSortFilter" id="priceSort">
-        <text class="txt">价格</text>
+        <text class="txt">{{languageMap['价格']}}</text>
         <van-icon name="arrow-up" wx:if="{{ currentSortType == 'price' && currentSortOrder == 'asc' }}" />
         <van-icon name="arrow-down" wx:elif="{{ currentSortType == 'price' && currentSortOrder == 'desc'}}" />
       </view>
       <view class="item {{currentSortType == 'category' ? 'active' : ''}}" bindtap="openSortFilter" id="categoryFilter">
-        <text class="txt">分类</text>
+        <text class="txt">{{languageMap['分类']}}</text>
       </view>
     </view>
     <view class="sort-box-category" wx-if="{{categoryFilter}}">
