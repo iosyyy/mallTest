@@ -1,5 +1,6 @@
 var api = require('../config/api.js');
 var app = getApp();
+var languageMaps = require('../languageMap/all.js')
 
 function formatTime(date) {
   var year = date.getFullYear()
@@ -84,9 +85,23 @@ function showErrorToast(msg) {
   })
 }
 
+function changeLanguage(index){
+  let app = getApp()
+  switch(index){
+    case 0:
+    app.globalData.languageMap = languageMaps['Chinese']
+    break;
+    case 1:
+    app.globalData.languageMap = languageMaps['English']
+    break;
+  } 
+  console.log(app.globalData.languageMap);
+}
+
 module.exports = {
   formatTime,
   request,
   redirect,
-  showErrorToast
+  showErrorToast,
+  changeLanguage
 }
