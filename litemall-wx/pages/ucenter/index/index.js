@@ -15,7 +15,9 @@ Page({
       unrecv: 0,
       uncomment: 0
     },
-    hasLogin: false
+    hasLogin: false,
+    actionSheetHidden:true,
+    typeArray:['简体中文','english']
   },
   onLoad: function(options) {
     // 页面初始化 options为页面跳转所带来的参数
@@ -219,5 +221,14 @@ Page({
       }
     })
 
+  },
+  goSwitch(){
+    this.setData({
+      actionSheetHidden:false
+    })
+  },listenerActionSheet(){
+    this.setData({
+      actionSheetHidden:true
+    })
   }
 })
