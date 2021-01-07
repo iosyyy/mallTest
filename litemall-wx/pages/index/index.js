@@ -56,7 +56,12 @@ Page({
     });
   },
   onLoad: function(options) {
-
+//首次设置语言
+var that = this
+var app = getApp()
+this.setData({
+  languageMap:app.globalData.languageMap
+})
     // 页面初始化 options为页面跳转所带来的参数
     if (options.scene) {
       //这个scene的值存在则证明首页的开启来源于朋友圈分享的图,同时可以通过获取到的goodId的值跳转导航到对应的详情页

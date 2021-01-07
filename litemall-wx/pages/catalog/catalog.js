@@ -12,6 +12,12 @@ Page({
     scrollHeight: 0
   },
   onLoad: function(options) {
+    //首次设置语言
+    var that = this
+    var app = getApp()
+    this.setData({
+      languageMap:app.globalData.languageMap
+    })
     this.getCatalog();
   },
   onPullDownRefresh() {

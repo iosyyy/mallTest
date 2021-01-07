@@ -31,6 +31,12 @@ Page({
     });
   },
   onLoad: function(options) {
+    //首次设置语言
+    var that = this
+    var app = getApp()
+    this.setData({
+      languageMap:app.globalData.languageMap
+    })
     this.getCollectList();
   },
   onReachBottom() {

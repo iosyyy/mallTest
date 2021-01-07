@@ -20,6 +20,12 @@ Page({
     typeArray:['简体中文','english']
   },
   onLoad: function(options) {
+    //首次设置语言
+    var that = this
+    var app = getApp()
+    this.setData({
+      languageMap:app.globalData.languageMap
+    })
     // 页面初始化 options为页面跳转所带来的参数
   },
   onReady: function() {

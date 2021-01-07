@@ -1,6 +1,6 @@
-var util = require('./utils/util.js');
 var api = require('./config/api.js');
 var user = require('./utils/user.js');
+var Chinese = require("./languageMap/Chinese")
 App({
   onLaunch: function() {
     const updateManager = wx.getUpdateManager();
@@ -23,6 +23,7 @@ App({
     }).catch(() => {
       this.globalData.hasLogin = false;
     });
+    this.globalData.languageMap = Chinese
   },
   globalData: {
     hasLogin: false,
