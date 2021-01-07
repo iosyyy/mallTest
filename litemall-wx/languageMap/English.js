@@ -29,7 +29,7 @@ module.exports = {
 
   //catalog
   '商品搜索, 共':'product search, total',
-  '款好物':'goods',
+  '款好物':' goods',
   '分类':'classification ',
 
   //checkout
@@ -125,7 +125,7 @@ module.exports = {
   '人气推荐':'popular recommendation',
   '专题精选':'special selection',
   '更多':'more',
-  '好物 >':'good things >',
+  '好物 >':' good things >',
 
   
   //payResult
