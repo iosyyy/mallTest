@@ -1,7 +1,7 @@
 <view class="container">
   <view class="order-goods">
     <view class="h">
-      退款商品
+      {{languageMap['退款商品']}}
     </view>
     <view class="goods">
       <view class="item" wx:for="{{orderGoods}}" wx:key="id">
@@ -20,24 +20,24 @@
     </view>
   </view>
 
-  <van-cell-group title="订单明细">
-    <van-cell title="商品总价" value=" ￥{{orderInfo.goodsPrice}}元" />
-    <van-cell title="    运费" value=" ￥{{orderInfo.freightPrice}}元" />
-    <van-cell title="    优惠" value="-￥{{orderInfo.couponPrice}}元" />
-    <van-cell title="订单实付" value=" ￥{{orderInfo.actualPrice}}元" />
+  <van-cell-group title="{{languageMap['订单明细']}}">
+    <van-cell title="{{languageMap['商品总价']}}" value=" {{orderInfo.goodsPrice+languageMap['元']}}" />
+    <van-cell title="    {{languageMap['运费']}}" value=" ￥{{orderInfo.freightPrice+languageMap['元']}}" />
+    <van-cell title="{{languageMap['优惠']}}" value="-￥{{orderInfo.couponPrice+languageMap['元']}}" />
+    <van-cell title="{{languageMap['订单实付']}}" value=" ￥{{orderInfo.actualPrice+languageMap['元']}}" />
   </van-cell-group>
 
-  <van-cell-group title="操作">
-    <van-field value="{{ aftersale.typeDesc }}" label="退款类型" placeholder="请选择" input-align="right" required clickable bind:tap="showTypePicker" />
-    <van-field value="{{ aftersale.reason }}" label="退款原因" placeholder="请输入" bind:change="onReasonChange" input-align="right" required clearable />
-    <van-cell title="退款金额" value="￥{{ aftersale.amount }}元" label="不可修改，即订单实付- 运费" required/>
-    <van-field label="退款说明" value="{{ aftersale.comment }}" placeholder="请输入" type="textarea" input-align="right" autosize/>
-    <van-cell title="上传凭证" label="最多上传三张">
+  <van-cell-group title="{{languageMap['操作']}}">
+    <van-field value="{{ aftersale.typeDesc }}" label="{{languageMap['退款类型']}}" placeholder="{{languageMap['请选择']}}" input-align="right" required clickable bind:tap="showTypePicker" />
+    <van-field value="{{ aftersale.reason }}" label="{{languageMap['退款原因']}}" placeholder="{{languageMap['请输入']}}" bind:change="onReasonChange" input-align="right" required clearable />
+    <van-cell title="{{languageMap['退款金额']}}" value="￥{{aftersale.amount+languageMap['元']}}" label="{{languageMap['不可修改，即订单实付- 运费']}}" required/>
+    <van-field label="{{languageMap['退款说明']}}" value="{{ aftersale.comment }}" placeholder="{{languageMap['请输入']}}" type="textarea" input-align="right" autosize/>
+    <van-cell title="{{languageMap['上传凭证']}}" label="{{languageMap['最多上传三张']}}">
       <van-uploader file-list="{{ fileList }}" bind:after-read="afterRead" bind:delete="deleteImage" max-count="3" preview-size="50px"/>
     </van-cell>    
   </van-cell-group>
 
-  <van-button type="danger" bind:click="submit" block>申请售后</van-button>
+  <van-button type="danger" bind:click="submit" block>{{languageMap['申请售后']}}</van-button>
 
   <van-popup show="{{showPicker}}" position="bottom">
     <van-picker show-toolbar columns="{{columns}}" bind:cancel="onCancel" bind:confirm="onConfirm" />

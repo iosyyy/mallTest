@@ -28,6 +28,8 @@ Page({
     this.setData({
       languageMap:app.globalData.languageMap
     })
+    console.log(app.globalData.languageMap);
+    
     this.getAbout()
   },
   getAbout: function () {

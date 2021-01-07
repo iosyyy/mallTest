@@ -33,6 +33,7 @@ Page({
     // 页面关闭
   },
   nextPage: function(event) {
+    
     var that = this;
     if (this.data.page > that.data.count / that.data.limit) {
       return true;

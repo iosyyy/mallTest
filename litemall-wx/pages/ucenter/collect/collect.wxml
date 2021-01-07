@@ -1,7 +1,7 @@
 <view class="container">
   <view class="no-collect" wx:if="{{collectList.length <= 0}}">
     <view class="c">
-      <text>还没有收藏</text>
+      <text>{{languageMap['还没有收藏']}}</text>
     </view>
   </view>
   <view class="collect-list" wx:else>

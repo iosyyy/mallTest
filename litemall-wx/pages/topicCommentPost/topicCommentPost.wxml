@@ -26,7 +26,7 @@
 
     <view class="weui-uploader">
       <view class="weui-uploader__hd">
-        <view class="weui-uploader__title">图片上传</view>
+        <view class="weui-uploader__title">{{languageMap['图片上传']}}</view>
         <view class="weui-uploader__info">{{picUrls.length}}/{{files.length}}</view>
       </view>
       <view class="weui-uploader__bd">
@@ -44,8 +44,8 @@
     </view>
 
     <view class="btns">
-      <view class="close" bindtap="onClose">取消</view>
-      <view class="post" bindtap="onPost">发表</view>
+      <view class="close" bindtap="onClose">{{languageMap['取消']}}</view>
+      <view class="post" bindtap="onPost">{{languageMap['发表']}}</view>
     </view>
   </view>
 </view>

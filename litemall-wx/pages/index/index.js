@@ -87,7 +87,10 @@ this.setData({
         });
       }
     }
-
+    var app = getApp()
+    this.setData({
+      languageMap:app.globalData.languageMap
+    })
     // 页面初始化 options为页面跳转所带来的参数
     if (options.grouponId) {
       //这个pageId的值存在则证明首页的开启来源于用户点击来首页,同时可以通过获取到的pageId的值跳转导航到对应的详情页
@@ -119,6 +122,10 @@ this.setData({
   },
   onShow: function() {
     // 页面显示
+    var app = getApp()
+    this.setData({
+      languageMap:app.globalData.languageMap
+    })
   },
   onHide: function() {
     // 页面隐藏
