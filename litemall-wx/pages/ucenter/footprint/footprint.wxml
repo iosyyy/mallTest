@@ -1,7 +1,7 @@
 <view class="container">
   <view class="no-footprint" wx:if="{{footprintList.length <= 0}}">
     <view class="c">
-      <text>没有浏览足迹</text>
+      <text>{{languageMap['没有浏览足迹']}}</text>
     </view>
   </view>
   <view class="footprint" wx:if="{{footprintList.length > 0}}">
