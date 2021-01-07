@@ -1,7 +1,6 @@
 var util = require('./utils/util.js');
 var api = require('./config/api.js');
 var user = require('./utils/user.js');
-
 App({
   onLaunch: function() {
     const updateManager = wx.getUpdateManager();
@@ -28,5 +27,18 @@ App({
   globalData: {
     hasLogin: false,
     languageMap:null
-  }
+  },
+  languageMapChange:function(callBack){
+    var obj = this.globalData;
+    Object.defineProperty(obj,"languageMap", {
+      configurable: true,
+      enumerable: true,
+      set: function (value) {
+        callBack(value);
+      },
+      get:function(){
+        return this._name
+      }
+    })
+  },
 })
