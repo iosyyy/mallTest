@@ -12,7 +12,7 @@
       </view>
     </view>
     <view class="rater">
-      <text class="rater-title">评分</text>
+      <text class="rater-title">{{languageMap['评分']}}</text>
       <block wx:for="{{stars}}" wx:key="*this" wx:for-item="item">
         <van-icon name="star" bindtap="selectRater" color="#ab956d" data-star="{{item}}" wx:if="{{item < star}}"/>
         <van-icon name="star-o" bindtap="selectRater" data-star="{{item}}" wx:else/>
@@ -20,7 +20,7 @@
       <text class="rater-desc">{{starText}}</text>
     </view>
     <view class="input-box">
-      <textarea class="content" focus="true" bindinput="bindInputValue" maxlength="140" placeholder="留言经过筛选后，对所有人可见" />
+      <textarea class="content" focus="true" bindinput="bindInputValue" maxlength="140" placeholder="{{languageMap['留言经过筛选后，对所有人可见']}}" />
       <text class="count">{{140 - content.length}}</text>
     </view>
 

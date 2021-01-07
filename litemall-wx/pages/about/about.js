@@ -23,20 +23,11 @@ Page({
    */
   onLoad: function (options) {
     //首次设置语言
+    var that = this
     var app = getApp()
-    console.log(app);
-    console.log(app.globalData.languageMap);
     this.setData({
       languageMap:app.globalData.languageMap
     })
-    console.log(this.languageMap);
-    // //监听languageMap变化
-    // app.languageMapChange(function(value){
-    //   that.setData({
-    //     languageMap:value
-    //   })
-    // })
-
     this.getAbout()
   },
   getAbout: function () {

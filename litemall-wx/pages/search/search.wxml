@@ -5,12 +5,12 @@
       <input name="input" class="keywrod" focus="true" value="{{keyword}}" confirm-type="search" bindinput="inputChange" bindfocus="inputFocus" bindconfirm="onKeywordConfirm" placeholder="{{defaultKeyword.keyword}}" />
       <van-icon class="del" wx:if="{{keyword}}" bindtap="clearKeyword" name="cross" />
     </view>
-    <view class="right" bindtap="closeSearch">取消</view>
+    <view class="right" bindtap="closeSearch">{{languageMap['取消']}}</view>
   </view>
   <view class="no-search" wx:if="{{ !searchStatus}}">
     <view class="search-keywords search-history" wx:if="{{!keyword  && historyKeyword.length}}">
       <view class="h">
-        <text class="title">历史记录</text>
+        <text class="title">{{languageMap['历史记录']}}</text>
         <van-icon bindtap="clearHistory" name="delete" class="icon"/>
       </view>
       <view class="b">
@@ -19,7 +19,7 @@
     </view>
     <view class="search-keywords search-hot" wx:if="{{!keyword && hotKeyword.length}}">
       <view class="h">
-        <text class="title">热门搜索</text>
+        <text class="title">{{languageMap['热门搜索']}}</text>
       </view>
       <view class="b">
         <view class="item {{item.is_hot === 1 ? 'active' : ''}}" hover-class="navigator-hover" bindtap="onKeywordTap" data-keyword="{{item.keyword}}" wx:for="{{hotKeyword}}" wx:key="id">{{item.keyword}}</view>
@@ -34,15 +34,15 @@
     <view class="sort">
       <view class="sort-box">
         <view class="item {{currentSortType == 'default' ? 'active' : ''}}" bindtap="openSortFilter" id="defaultSort">
-          <text class="txt">综合</text>
+          <text class="txt">{{languageMap['综合']}}</text>
         </view>
         <view class="item {{currentSortType == 'price' ? 'active' : ''}}" bindtap="openSortFilter" id="priceSort">
-          <text class="txt">价格</text>
+          <text class="txt">{{languageMap['价格']}}</text>
           <van-icon name="arrow-up" wx:if="{{ currentSortType == 'price' && currentSortOrder == 'asc' }}" />
           <van-icon name="arrow-down" wx:elif="{{ currentSortType == 'price' && currentSortOrder == 'desc'}}" />
         </view>
         <view class="item {{currentSortType == 'category' ? 'active' : ''}}" bindtap="openSortFilter" id="categoryFilter">
-          <text class="txt">分类</text>
+          <text class="txt">{{languageMap['分类']}}</text>
         </view>
       </view>
       <view class="sort-box-category" wx-if="{{categoryFilter}}">
@@ -61,6 +61,6 @@
   </view>
 
   <view class="search-result-empty" wx:if="{{!goodsList.length && searchStatus}}">
-    <text class="text">您寻找的商品还未上架</text>
+    <text class="text">{{languageMap['您寻找的商品还未上架']}}</text>
   </view>
 </scroll-view>
