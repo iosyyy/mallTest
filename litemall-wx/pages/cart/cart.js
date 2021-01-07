@@ -37,6 +37,11 @@ Page({
     wx.stopPullDownRefresh() //停止下拉刷新
   },
   onShow: function() {
+    var that = this
+    var app = getApp()
+    this.setData({
+      languageMap:app.globalData.languageMap
+    })
     // 页面显示
     if (app.globalData.hasLogin) {
       this.getCartList();

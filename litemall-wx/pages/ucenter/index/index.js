@@ -32,7 +32,11 @@ Page({
 
   },
   onShow: function() {
-
+    var that = this
+    var app = getApp()
+    this.setData({
+      languageMap:app.globalData.languageMap
+    })
     //获取用户的登录信息
     if (app.globalData.hasLogin) {
       let userInfo = wx.getStorageSync('userInfo');
@@ -242,6 +246,10 @@ Page({
     var index = e.target.dataset.index
     console.log("index:"+index);
     util.changeLanguage(index)
+    var app = getApp()
+    this.setData({
+      languageMap:app.globalData.languageMap
+    })
     this.setData({
       actionSheetHidden:true
     })
