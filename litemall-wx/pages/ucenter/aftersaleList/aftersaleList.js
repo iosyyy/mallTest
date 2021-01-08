@@ -16,6 +16,10 @@ Page({
     this.setData({
       languageMap:app.globalData.languageMap
     })
+    wx.setNavigationBarTitle({
+      title:app.globalData.languageMap['售后列表']
+      ,
+    })
   },
   getAftersaleList() {
     let that = this;

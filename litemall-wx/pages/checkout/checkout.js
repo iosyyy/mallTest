@@ -25,6 +25,9 @@ Page({
     this.setData({
       languageMap:app.globalData.languageMap
     })
+    wx.setNavigationBarTitle({
+      title: app.globalData.languageMap['下单'],
+    })
     // 页面初始化 options为页面跳转所带来的参数
   },
 

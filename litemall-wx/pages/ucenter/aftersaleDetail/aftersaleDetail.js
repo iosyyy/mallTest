@@ -18,6 +18,10 @@ Page({
     this.setData({
       languageMap:app.globalData.languageMap
     })
+    wx.setNavigationBarTitle({
+      title:app.globalData.languageMap['售后详情']
+      ,
+    })
     // 页面初始化 options为页面跳转所带来的参数
     this.setData({
       orderId: options.id

@@ -92,6 +92,10 @@ Page({
     this.setData({
       languageMap:app.globalData.languageMap
     })
+    wx.setNavigationBarTitle({
+      title:app.globalData.languageMap['我的足迹']
+      ,
+    })
     this.getFootprintList();
   },
   onReachBottom() {

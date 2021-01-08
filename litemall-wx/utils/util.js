@@ -97,11 +97,17 @@ function changeLanguage(index){
   } 
   console.log(app.globalData.languageMap);
 }
+function aaa(str){
+  let app =  getApp()
+  return app.globalData.languageMap[str]
+}
+
 
 module.exports = {
   formatTime,
   request,
   redirect,
   showErrorToast,
-  changeLanguage
+  changeLanguage,
+  aaa
 }

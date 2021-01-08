@@ -115,8 +115,6 @@ public class WxAuthController {
 
         String code = wxLoginInfo.getCode();
         UserInfo userInfo = wxLoginInfo.getUserInfo();
-        System.out.println(code);
-        System.out.println(userInfo);
         if (code == null || userInfo == null) {
             return ResponseUtil.badArgument();
         }
@@ -146,9 +144,7 @@ public class WxAuthController {
             {
                 str.append(new String(bytes,0,len));
             }
-            System.out.println(str);
             JSONObject jsonObject = new JSONObject(str.toString());
-            System.out.println(jsonObject);
             if(jsonObject.has("errcode"))
             {
                 return ResponseUtil.fail(jsonObject.getInt("errcode"),jsonObject.getString("errmsg"));

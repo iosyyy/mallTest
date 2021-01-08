@@ -101,6 +101,10 @@ Page({
     this.setData({
       languageMap:app.globalData.languageMap
     })
+    wx.setNavigationBarTitle({
+      title:app.globalData.languageMap['购买商品评价']
+      ,
+    })
     var that = this;
     that.setData({
       orderId: options.orderId,

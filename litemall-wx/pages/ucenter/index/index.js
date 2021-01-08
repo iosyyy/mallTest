@@ -26,6 +26,10 @@ Page({
     this.setData({
       languageMap:app.globalData.languageMap
     })
+    wx.setNavigationBarTitle({
+      title:app.globalData.languageMap['个人中心']
+      ,
+    })
     // 页面初始化 options为页面跳转所带来的参数
   },
   onReady: function() {
@@ -236,6 +240,7 @@ Page({
     this.setData({
       actionSheetHidden:false
     })
+    
   },
   listenerActionSheet(){
     this.setData({
@@ -249,6 +254,10 @@ Page({
     var app = getApp()
     this.setData({
       languageMap:app.globalData.languageMap
+    })
+    wx.setNavigationBarTitle({
+      title:app.globalData.languageMap['个人中心']
+      ,
     })
     this.setData({
       actionSheetHidden:true

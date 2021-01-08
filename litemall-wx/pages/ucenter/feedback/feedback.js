@@ -164,6 +164,10 @@ var app = getApp()
 this.setData({
   languageMap:app.globalData.languageMap
 })
+wx.setNavigationBarTitle({
+  title:app.globalData.languageMap['意见反馈']
+  ,
+})
   },
   onReady: function() {
 

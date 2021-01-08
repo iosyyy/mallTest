@@ -17,6 +17,9 @@ Page({
     this.setData({
       languageMap:app.globalData.languageMap
     })
+    wx.setNavigationBarTitle({
+      title: app.globalData.languageMap['品牌'],
+    })
   },
   getBrandList: function() {
     wx.showLoading({
@@ -52,6 +55,7 @@ Page({
   },
   onShow: function() {
     // 页面显示
+    
 
   },
   onHide: function() {

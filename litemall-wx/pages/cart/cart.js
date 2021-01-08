@@ -25,6 +25,9 @@ Page({
     this.setData({
       languageMap:app.globalData.languageMap
     })
+    wx.setNavigationBarTitle({
+      title: app.globalData.languageMap['购物车'],
+    })
     // 页面初始化 options为页面跳转所带来的参数
   },
   onReady: function() {
@@ -41,6 +44,9 @@ Page({
     var app = getApp()
     this.setData({
       languageMap:app.globalData.languageMap
+    })
+    wx.setNavigationBarTitle({
+      title: app.globalData.languageMap['购物车'],
     })
     // 页面显示
     if (app.globalData.hasLogin) {

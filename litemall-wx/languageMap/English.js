@@ -128,7 +128,7 @@ module.exports = {
   '更多':'more',
   '好物 >':' good things >',
 
-  
+
   //payResult
   '付款成功':'Payment successful',
   '查看订单':'check order',
@@ -216,7 +216,7 @@ module.exports = {
 
   //ucenter/feedback
   '对我们网站、商品、服务，你还有什么建议吗？你还希望在商城上买到什么？请告诉我们...':
-  'Do you have any suggestions for our website, products, and services? What else do you want to buy on the mall? please tell us',
+      'Do you have any suggestions for our website, products, and services? What else do you want to buy on the mall? please tell us',
   '方便我们与你联系':'so that we can contact you',
   '提交':'submit',
 
@@ -261,5 +261,233 @@ module.exports = {
   '优惠：':'Offer:',
   '实付：':'Actually paid:',
   '快递公司：':'Courier company:',
-  '物流单号：':'shipment number:'
+  '物流单号：':'shipment number:',
+
+
+  //title
+  "首页": "Home",
+  "专题": "Topic",
+  "专题详情": "Topic details",
+  "专题评论列表": "Thematic comment list",
+  "专题评论添加": "Special comments added",
+  "品牌": "Brand",
+  "品牌详情": "Brand details",
+  "人气推荐": "Popular recommendation",
+  "新品首发": "new product launch",
+  "分类": "classification",
+  "分类详情": "Classification details",
+  "查找": "Find",
+  "商品": "commodity",
+  "商品评论列表": "Product review list",
+  "购物车": "shopping cart",
+  "下单": "Place an order",
+  "支付结果": "Payment result",
+  "个人中心": "Personal",
+  "我的订单列表": "My order list",
+  "我的订单详情": "My order details",
+  "待评价的订单详情": "Order details to be evaluated",
+  "购买商品评价": "Purchase product evaluation",
+  "我的收藏": "my collection",
+  "我的足迹": "My footprint",
+  "我的地址": "my address",
+  "我的地址添加": "Add my address",
+  "登录": "log in",
+  "账号登录": "Account login",
+  "注册": "registered",
+  "找回密码": "Retrieve password",
+  "关于": "About",
+  "测试更新": "Test update",
+  "意见反馈": "Feedback",
+  "团购专区": "Group purchase area",
+  "帮助中心": "Help center",
+  "我的团购": "My group buy",
+  "申请售后": "Apply for after-sales",
+  "售后列表": "After-sales list",
+  "售后详情": "After-sale details",
+  "多国语言电商平台": "Multilingual e-commerce platform",
+  "商品":"commodity",
+  '团购详情':'Group purchase details',
+  '品牌商详情':'Brand details',
+
+  //--------------------------------------
+  //about
+
+  //auth/login
+  "错误信息":"错误信息",
+  "请输入用户名和密码":"请输入用户名和密码",
+  "账户登录失败":"账户登录失败",
+
+  //brand
+  "加载中...":"加载中...",
+
+  //brandDetail
+
+  //cart
+
+  //catalog
+  "加载中...":"加载中...",
+
+  //checkout
+  "加载中...":"加载中...",
+  "请选择收货地址":"请选择收货地址",
+
+  //comment
+  "十分满意":"十分满意",
+  "只能上传五张图片":"只能上传五张图片",
+  "错误":"错误",
+  "上传失败":"上传失败",
+  "很差":"很差",
+  "不太满意":"不太满意",
+  "满意":"满意",
+  "比较满意":"比较满意",
+  "十分满意":"十分满意",
+  "请填写评论":"请填写评论",
+  "评论成功":"评论成功",
+
+  //goods
+  "规格数量选择":"规格数量选择",
+  "请选择规格数量":"请选择规格数量",
+  "唯爱与美食不可辜负":"唯爱与美食不可辜负",
+  "警告":"警告",
+  "不授权无法保存":"不授权无法保存",
+  "保存成功":"保存成功",
+  "生成海报成功":"生成海报成功",
+  "海报已成功保存到相册，可以分享到朋友圈了":"海报已成功保存到相册，可以分享到朋友圈了",
+  "好的":"好的",
+  "已选择：":"已选择：",
+  "请选择规格数量":"请选择规格数量",
+  "规格所对应货品不存在":"规格所对应货品不存在",
+  "规格数量选择":"规格数量选择",
+  "请选择完整规格":"请选择完整规格",
+  "没有库存":"没有库存",
+  "添加成功":"添加成功",
+
+  //groupon/grouponDetail
+  "邀请团购":"邀请团购",
+  "唯爱与美食不可辜负":"唯爱与美食不可辜负",
+  "已开团":"已开团",
+  "开团中":"开团中",
+  "开团成功":"开团成功",
+  "开团失败":"开团失败",
+
+  //groupon/grouponList
+  "加载中...":"加载中...",
+
+  //groupon/myGroupon
+
+  //help
+
+  //hotGoods
+  "大家都在买的":"大家都在买的",
+
+  //index
+  "litemall小程序商场":"litemall小程序商场",
+  "开源微信小程序商城":"开源微信小程序商城",
+
+  //newGood
+  "大家都在买的":"大家都在买的",
+
+  //payResult
+  "支付失败":"支付失败",
+
+  //search
+
+  //topic
+  "加载中...":"加载中...",
+
+  //topicComment
+
+  //topicCommentPost
+  "只能上传五张图片":"只能上传五张图片",
+  "十分满意":"十分满意",
+  "错误":"错误",
+  "上传失败":"上传失败",
+
+  //topicDetail
+
+  //uncent/adress
+  "确定要删除地址？":"确定要删除地址？",
+
+  //uncent/adressAdd
+  "省份":"省份",
+  "城市":"城市",
+  "区县":"区县",
+  "请输入姓名":"请输入姓名",
+  "请输入手机号码":"请输入手机号码",
+  "请输入省市区":"请输入省市区",
+  "请输入详细地址":"请输入详细地址",
+
+  //uncent/aftersale
+  "未收货退款":"未收货退款",
+  "不退货退款":"不退货退款",
+  "退货退款":"退货退款",
+  "加载中":"加载中",
+  "错误":"错误",
+  "上传失败":"上传失败",
+  "请选择退款类型":"请选择退款类型",
+  "请输入退款原因":"请输入退款原因",
+  "提交中...":"提交中...",
+  "申请售后成功":"申请售后成功",
+
+  //uncent/aftersaleDetail
+  "未申请":"未申请",
+  "已申请，待审核":"已申请，待审核",
+  "审核通过，待退款":"审核通过，待退款",
+  "退款成功":"退款成功",
+  "审核不通过，已拒绝":"审核不通过，已拒绝",
+  "未收货退款":"未收货退款",
+  "不退货退款":"不退货退款",
+  "退货退款":"退货退款",
+  "加载中":"加载中",
+
+  //uncent/aftersaleList
+  "没有更多售后了":"没有更多售后了",
+
+  //uncent/collect
+  "加载中...":"加载中...",
+  "没有更多用户收藏了":"没有更多用户收藏了",
+  "确定删除吗？":"确定删除吗？",
+  "删除成功":"删除成功",
+
+  //uncent/feedback
+  "请选择反馈类型":"请选择反馈类型",
+  "商品相关":"商品相关",
+  "功能异常":"功能异常",
+  "优化建议":"优化建议",
+  "其他":"其他",
+  "只能上传五张图片":"只能上传五张图片",
+  "错误":"错误",
+  "上传失败":"上传失败",
+  "请输入反馈内容":"请输入反馈内容",
+  "请输入手机号码":"请输入手机号码",
+  "提交中...":"提交中...",
+  "感谢您的反馈！":"感谢您的反馈！",
+
+  //uncent/footprint
+  "加载中...":"加载中...",
+  "要删除所选足迹？":"要删除所选足迹？",
+  "删除成功":"删除成功",
+  "没有更多用户足迹了":"没有更多用户足迹了",
+
+  //uncent/index
+  "点击登录":"点击登录",
+  "绑定失败：请先登录":"绑定失败：请先登录",
+  "绑定手机号码成功":"绑定手机号码成功",
+  "退出登录？":"退出登录？",
+
+  //uncent/order
+  "没有更多订单了":"没有更多订单了",
+
+  //uncent/orderDetail
+  "加载中":"加载中",
+  "支付失败":"支付失败",
+  "支付过程结束":"支付过程结束",
+  "确定要取消此订单？":"确定要取消此订单？",
+  "取消订单成功":"取消订单成功",
+  "确定要删除此订单？":"确定要删除此订单？",
+  "删除订单成功":"删除订单成功",
+  "确认收货？":"确认收货？",
+  "确认收货成功！":"确认收货成功！",
+
+
 }

@@ -15,6 +15,10 @@ Page({
     this.setData({
       languageMap:app.globalData.languageMap
     })
+    wx.setNavigationBarTitle({
+      title:app.globalData.languageMap['我的订单列表']
+      ,
+    })
     // 页面初始化 options为页面跳转所带来的参数
     let that = this
     try {

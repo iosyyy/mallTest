@@ -37,6 +37,10 @@ var app = getApp()
 this.setData({
   languageMap:app.globalData.languageMap
 })
+wx.setNavigationBarTitle({
+  title:app.globalData.languageMap['查找']
+  ,
+})
     this.getSearchKeyword();
   },
 

@@ -27,6 +27,10 @@ Page({
     this.setData({
       languageMap:app.globalData.languageMap
     })
+    wx.setNavigationBarTitle({
+      title:app.globalData.languageMap['团购专区']
+      ,
+    })
     this.getGrouponList();
   },
 

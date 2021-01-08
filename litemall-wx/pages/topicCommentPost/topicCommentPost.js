@@ -93,10 +93,18 @@ Page({
 
   },
   onLoad: function(options) {
+    var app = getApp()
+    this.setData({
+      languageMap:app.globalData.languageMap
+    })
+    wx.setNavigationBarTitle({
+      title:app.globalData.languageMap['专题评论添加']
+      ,
+    })
     if (parseInt(options.type) !== 1) {
       return;
     }
-
+    
     var that = this;
     that.setData({
       valueId: options.valueId

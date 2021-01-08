@@ -69,6 +69,9 @@ Page({
     this.setData({
       languageMap:app.globalData.languageMap
     })
+    wx.setNavigationBarTitle({
+      title: app.globalData.languageMap['分类'],
+    })
   },
   onHide: function() {
     // 页面隐藏

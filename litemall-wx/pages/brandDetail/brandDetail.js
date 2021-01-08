@@ -25,6 +25,9 @@ Page({
       id: parseInt(options.id)
     });
     this.getBrand();
+    wx.setNavigationBarTitle({
+      title: app.globalData.languageMap['品牌详情'],
+    })
   },
   getBrand: function() {
     let that = this;

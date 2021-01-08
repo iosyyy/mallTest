@@ -13,6 +13,10 @@ var app = getApp()
 this.setData({
   languageMap:app.globalData.languageMap
 })
+wx.setNavigationBarTitle({
+  title: app.globalData.languageMap['登录'],
+})
+
   },
   onReady: function() {
 
@@ -47,7 +51,6 @@ this.setData({
         app.globalData.hasLogin = false;
         util.showErrorToast('微信登录失败');
       });
-
     });
   },
   accountLogin: function() {

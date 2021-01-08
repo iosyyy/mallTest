@@ -29,7 +29,10 @@ Page({
       languageMap:app.globalData.languageMap
     })
     console.log(app.globalData.languageMap);
-    
+    wx.setNavigationBarTitle({
+      title: app.globalData.languageMap['多国语言电商平台'],
+    })
+
     this.getAbout()
   },
   getAbout: function () {

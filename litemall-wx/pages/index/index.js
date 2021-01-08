@@ -126,6 +126,9 @@ this.setData({
     this.setData({
       languageMap:app.globalData.languageMap
     })
+    wx.setNavigationBarTitle({
+      title: app.globalData.languageMap['首页'],
+    })
   },
   onHide: function() {
     // 页面隐藏

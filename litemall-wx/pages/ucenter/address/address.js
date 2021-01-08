@@ -14,6 +14,10 @@ Page({
     this.setData({
       languageMap:app.globalData.languageMap
     })
+    wx.setNavigationBarTitle({
+      title:app.globalData.languageMap['我的地址']
+      ,
+    })
     // 页面初始化 options为页面跳转所带来的参数
   },
   onReady: function() {

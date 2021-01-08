@@ -20,6 +20,9 @@ Page({
     this.setData({
       languageMap:app.globalData.languageMap
     })
+    wx.setNavigationBarTitle({
+      title: app.globalData.languageMap['分类详情'],
+    })
     // 页面初始化 options为页面跳转所带来的参数
     var that = this;
     if (options.id) {

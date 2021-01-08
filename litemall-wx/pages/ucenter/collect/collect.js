@@ -37,6 +37,10 @@ Page({
     this.setData({
       languageMap:app.globalData.languageMap
     })
+    wx.setNavigationBarTitle({
+      title:app.globalData.languageMap['我的收藏']
+      ,
+    })
     this.getCollectList();
   },
   onReachBottom() {

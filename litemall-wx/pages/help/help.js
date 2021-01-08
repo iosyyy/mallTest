@@ -25,7 +25,12 @@ Page({
     this.setData({
       languageMap:app.globalData.languageMap
     })
+    wx.setNavigationBarTitle({
+      title:app.globalData.languageMap['帮助中心']
+      ,
+    })
     this.getIssue();
+
   },
 
   /**
