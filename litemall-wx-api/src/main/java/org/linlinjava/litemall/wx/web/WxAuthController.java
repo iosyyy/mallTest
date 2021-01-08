@@ -5,6 +5,7 @@ import cn.binarywang.wx.miniapp.bean.WxMaJscode2SessionResult;
 import cn.binarywang.wx.miniapp.bean.WxMaPhoneNumberInfo;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.json.JSONObject;
 import org.linlinjava.litemall.core.notify.NotifyService;
 import org.linlinjava.litemall.core.notify.NotifyType;
 import org.linlinjava.litemall.core.util.*;
@@ -22,6 +23,10 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
@@ -107,23 +112,59 @@ public class WxAuthController {
      */
     @PostMapping("login_by_weixin")
     public Object loginByWeixin(@RequestBody WxLoginInfo wxLoginInfo, HttpServletRequest request) {
+
         String code = wxLoginInfo.getCode();
         UserInfo userInfo = wxLoginInfo.getUserInfo();
+        System.out.println(code);
+        System.out.println(userInfo);
         if (code == null || userInfo == null) {
             return ResponseUtil.badArgument();
         }
-        System.out.println(code);
-        System.out.println(userInfo);
-        String sessionKey = null;
-        String openId = null;
+        String sessionKey = "";
+        String openId = "";
+        String url="https://api.weixin.qq.com/sns/jscode2session?appid=wx3f29425e043ecbc6&secret=5504c51b26d9a18ee2de6d4bc9fe2f30&js_code="+code+"&grant_type=authorization_code";
+        URL realUrl;
+        // 打开和URL之间的连接
+        URLConnection connection;
+        InputStream inputStream = null;
         try {
-            WxMaJscode2SessionResult result = this.wxService.getUserService().getSessionInfo(code);
-            sessionKey = result.getSessionKey();
-            openId = result.getOpenid();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+            realUrl = new URL(url);
+            connection = realUrl.openConnection();
+            // 设置通用的请求属性
+            connection.setRequestProperty("accept", "*/*");
+            connection.setRequestProperty("connection", "Keep-Alive");
+            connection.setRequestProperty("user-agent",
+                    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
+            // 建立实际的连接
+            connection.connect();
 
+            inputStream = connection.getInputStream();
+            byte[] bytes =new byte[1024];
+            int len;
+            StringBuilder str=new StringBuilder();
+            while((len=inputStream.read(bytes))!=-1)
+            {
+                str.append(new String(bytes,0,len));
+            }
+            System.out.println(str);
+            JSONObject jsonObject = new JSONObject(str.toString());
+            System.out.println(jsonObject);
+            if(jsonObject.has("errcode"))
+            {
+                return ResponseUtil.fail(jsonObject.getInt("errcode"),jsonObject.getString("errmsg"));
+            }
+            openId=jsonObject.getString("openid");
+            sessionKey=jsonObject.getString("session_key");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                assert inputStream != null;
+                inputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
         if (sessionKey == null || openId == null) {
             return ResponseUtil.fail();
         }
