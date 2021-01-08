@@ -72,7 +72,7 @@
 		</view>
 		<!--默认action-sheet为隐藏，由button触发-->
 		<action-sheet hidden="{{actionSheetHidden}}" bindchange="listenerActionSheet">
-			<action-sheet-item class="bababa" wx:for="{{typeArray}}" wx:key="{{index}}">
+			<action-sheet-item class="bababa" wx:for="{{typeArray}}" wx:key="index">
 				<view class='lalala' data-index="{{index}}" bindtap="changeLanguage">{{item}}</view>
 			</action-sheet-item>
 			<!--自动隐藏action-sheet-->

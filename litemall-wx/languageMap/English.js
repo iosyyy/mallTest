@@ -8,6 +8,7 @@ module.exports = {
   //auth/login
   '微信登录':'wechat Login',
   '微信登录失败':'wechat login failed',
+  '微信直接登录':'login by wechat',
 
   //brand
   '元起':'yuan',
