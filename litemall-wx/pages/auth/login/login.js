@@ -34,16 +34,22 @@ wx.setNavigationBarTitle({
   },
   wxLogin: function(e) {
     if (e.detail.userInfo == undefined) {
-      app.globalData.hasLogin = false;
-      util.showErrorToast('微信登录失败');
+     app.globalData.hasLogin = false;
+       util.showErrorToast('微信登录失败');
       return;
     }
-
+    wx.showToast({
+      title: '正在登录中...',
+      image:'../../../static/images/loading.gif ',
+      mask:true
+    })
     user.checkLogin().catch(() => {
 
       user.loginByWeixin(e.detail.userInfo).then(res => {
         app.globalData.hasLogin = true;
-
+        wx.hideToast({
+          complete: (res) => {},
+        })
         wx.navigateBack({
           delta: 1
         })
@@ -52,6 +58,7 @@ wx.setNavigationBarTitle({
         util.showErrorToast('微信登录失败');
       });
     });
+    
   },
   accountLogin: function() {
     wx.navigateTo({

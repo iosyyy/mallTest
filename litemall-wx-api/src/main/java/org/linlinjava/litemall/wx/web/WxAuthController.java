@@ -3,8 +3,13 @@ package org.linlinjava.litemall.wx.web;
 import cn.binarywang.wx.miniapp.api.WxMaService;
 import cn.binarywang.wx.miniapp.bean.WxMaJscode2SessionResult;
 import cn.binarywang.wx.miniapp.bean.WxMaPhoneNumberInfo;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import com.alibaba.druid.support.logging.Log;
+import com.alibaba.druid.support.logging.LogFactory;
+import org.apache.http.HttpEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.json.JSONObject;
 import org.linlinjava.litemall.core.notify.NotifyService;
 import org.linlinjava.litemall.core.notify.NotifyType;
@@ -25,8 +30,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
-import java.net.URLConnection;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
@@ -120,51 +123,41 @@ public class WxAuthController {
         }
         String sessionKey = "";
         String openId = "";
-        String url="https://api.weixin.qq.com/sns/jscode2session?appid=wx3f29425e043ecbc6&secret=5504c51b26d9a18ee2de6d4bc9fe2f30&js_code="+code+"&grant_type=authorization_code";
-        URL realUrl;
-        // 打开和URL之间的连接
-        URLConnection connection;
-        InputStream inputStream = null;
+        String url = "https://api.weixin.qq.com/sns/jscode2session?appid=wx3f29425e043ecbc6&secret=5504c51b26d9a18ee2de6d4bc9fe2f30&js_code=" + code + "&grant_type=authorization_code";
+        CloseableHttpClient build = HttpClientBuilder.create().build();
+        CloseableHttpResponse execute = null;
         try {
-            realUrl = new URL(url);
-            connection = realUrl.openConnection();
-            // 设置通用的请求属性
-            connection.setRequestProperty("accept", "*/*");
-            connection.setRequestProperty("connection", "Keep-Alive");
-            connection.setRequestProperty("user-agent",
-                    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
-            // 建立实际的连接
-            connection.connect();
-
-            inputStream = connection.getInputStream();
-            byte[] bytes =new byte[1024];
+            execute = build.execute(new HttpGet(url));
+            HttpEntity entity = execute.getEntity();
+            InputStream content = entity.getContent();
+            byte[] bytes = new byte[1024];
             int len;
-            StringBuilder str=new StringBuilder();
-            while((len=inputStream.read(bytes))!=-1)
-            {
-                str.append(new String(bytes,0,len));
+            StringBuilder json = new StringBuilder();
+            while ((len = content.read(bytes)) != -1) {
+                json.append(new String(bytes, 0, len));
             }
-            JSONObject jsonObject = new JSONObject(str.toString());
-            if(jsonObject.has("errcode"))
-            {
-                return ResponseUtil.fail(jsonObject.getInt("errcode"),jsonObject.getString("errmsg"));
+            JSONObject jsonObject = new JSONObject(json.toString());
+            if (jsonObject.has("errcode")) {
+                return ResponseUtil.fail(-1, json.toString());
+            } else {
+                openId = jsonObject.getString("openid");
+                sessionKey = jsonObject.getString("session_key");
             }
-            openId=jsonObject.getString("openid");
-            sessionKey=jsonObject.getString("session_key");
         } catch (IOException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             try {
-                assert inputStream != null;
-                inputStream.close();
+                build.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            try {
+                assert execute != null;
+                execute.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-        if (sessionKey == null || openId == null) {
-            return ResponseUtil.fail();
-        }
-
         LitemallUser user = userService.queryByOid(openId);
         if (user == null) {
             user = new LitemallUser();
@@ -203,7 +196,7 @@ public class WxAuthController {
 
     /**
      * 请求注册验证码
-     *
+     * <p>
      * TODO
      * 这里需要一定机制防止短信验证码被滥用
      *
@@ -295,7 +288,7 @@ public class WxAuthController {
         String openId = "";
         // 非空，则是小程序注册
         // 继续验证openid
-        if(!StringUtils.isEmpty(wxCode)) {
+        if (!StringUtils.isEmpty(wxCode)) {
             try {
                 WxMaJscode2SessionResult result = this.wxService.getUserService().getSessionInfo(wxCode);
                 openId = result.getOpenid();
@@ -351,7 +344,7 @@ public class WxAuthController {
 
     /**
      * 请求验证码
-     *
+     * <p>
      * TODO
      * 这里需要一定机制防止短信验证码被滥用
      *
@@ -360,7 +353,7 @@ public class WxAuthController {
      */
     @PostMapping("captcha")
     public Object captcha(@LoginUser Integer userId, @RequestBody String body) {
-        if(userId == null){
+        if (userId == null) {
             return ResponseUtil.unlogin();
         }
         String phoneNumber = JacksonUtil.parseString(body, "mobile");
@@ -457,7 +450,7 @@ public class WxAuthController {
      */
     @PostMapping("resetPhone")
     public Object resetPhone(@LoginUser Integer userId, @RequestBody String body, HttpServletRequest request) {
-        if(userId == null){
+        if (userId == null) {
             return ResponseUtil.unlogin();
         }
         String password = JacksonUtil.parseString(body, "password");
@@ -511,7 +504,7 @@ public class WxAuthController {
      */
     @PostMapping("profile")
     public Object profile(@LoginUser Integer userId, @RequestBody String body, HttpServletRequest request) {
-        if(userId == null){
+        if (userId == null) {
             return ResponseUtil.unlogin();
         }
         String avatar = JacksonUtil.parseString(body, "avatar");
@@ -519,13 +512,13 @@ public class WxAuthController {
         String nickname = JacksonUtil.parseString(body, "nickname");
 
         LitemallUser user = userService.findById(userId);
-        if(!StringUtils.isEmpty(avatar)){
+        if (!StringUtils.isEmpty(avatar)) {
             user.setAvatar(avatar);
         }
-        if(gender != null){
+        if (gender != null) {
             user.setGender(gender);
         }
-        if(!StringUtils.isEmpty(nickname)){
+        if (!StringUtils.isEmpty(nickname)) {
             user.setNickname(nickname);
         }
 
@@ -545,10 +538,10 @@ public class WxAuthController {
      */
     @PostMapping("bindPhone")
     public Object bindPhone(@LoginUser Integer userId, @RequestBody String body) {
-    	if (userId == null) {
+        if (userId == null) {
             return ResponseUtil.unlogin();
         }
-    	LitemallUser user = userService.findById(userId);
+        LitemallUser user = userService.findById(userId);
         String encryptedData = JacksonUtil.parseString(body, "encryptedData");
         String iv = JacksonUtil.parseString(body, "iv");
         WxMaPhoneNumberInfo phoneNumberInfo = this.wxService.getUserService().getPhoneNoInfo(user.getSessionKey(), encryptedData, iv);
