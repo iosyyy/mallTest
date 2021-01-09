@@ -72,7 +72,7 @@ Page({
     let that = this;
     wx.showModal({
       title: '',
-      content: '确定要删除地址？',
+      content: this.data.languageMap['确定要删除地址？'],
       success: function(res) {
         if (res.confirm) {
           let addressId = event.target.dataset.addressId;

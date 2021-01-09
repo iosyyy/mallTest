@@ -20,8 +20,8 @@ Page({
 
   onShareAppMessage: function() {
     return {
-      title: languageMap['多国语言电商平台'],
-      desc: languageMap['多国语言电商平台'],
+      title: this.data.languageMap['多国语言电商平台'],
+      desc: this.data.languageMap['多国语言电商平台'],
       path: '/pages/index/index'
     }
   },

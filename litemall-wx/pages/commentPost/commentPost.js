@@ -18,7 +18,7 @@ Page({
   },
   chooseImage: function(e) {
     if (this.data.files.length >= 5) {
-      util.showErrorToast(languageMap['只能上传五张图片'])
+      util.showErrorToast(this.data.languageMap['只能上传五张图片'])
       return false;
     }
 
@@ -54,8 +54,8 @@ Page({
       },
       fail: function(e) {
         wx.showModal({
-          title: languageMap['错误'],
-          content: languageMap['上传失败'],
+          title: this.data.languageMap['错误'],
+          content: this.data.languageMap['上传失败'],
           showCancel: false
         })
       },
@@ -78,15 +78,15 @@ Page({
     var star = e.currentTarget.dataset.star + 1;
     var starText;
     if (star == 1) {
-      starText = languageMap['很差'];
+      starText = this.data.languageMap['很差'];
     } else if (star == 2) {
-      starText = languageMap['不太满意'];
+      starText = this.data.languageMap['不太满意'];
     } else if (star == 3) {
-      starText = languageMap['满意'];
+      starText = this.data.languageMap['满意'];
     } else if (star == 4) {
-      starText = languageMap['比较满意'];
+      starText = this.data.languageMap['比较满意'];
     } else {
-      starText = languageMap['十分满意']
+      starText = this.data.languageMap['十分满意']
     }
     this.setData({
       star: star,
@@ -102,7 +102,7 @@ Page({
       languageMap:app.globalData.languageMap
     })
     this.setData({
-      starText:languageMap['十分满意']
+      starText:this.data.languageMap['十分满意']
     })
     wx.setNavigationBarTitle({
       title:app.globalData.languageMap['购买商品评价']
@@ -136,7 +136,7 @@ Page({
     let that = this;
 
     if (!this.data.content) {
-      util.showErrorToast(languageMap['请填写评论'])
+      util.showErrorToast(this.data.languageMap['请填写评论'])
       return false;
     }
 
@@ -149,7 +149,7 @@ Page({
     }, 'POST').then(function(res) {
       if (res.errno === 0) {
         wx.showToast({
-          title: languageMap['评论成功'],
+          title: this.data.languageMap['评论成功'],
           complete: function() {
             wx.switchTab({
               url: '/pages/ucenter/index/index'

@@ -13,7 +13,7 @@ Page({
   },
   getCollectList() {
     wx.showLoading({
-      title: '加载中...',
+      title: this.data.languageMap['加载中...'],
     });
     let that = this;
     util.request(api.CollectList, {
@@ -51,7 +51,7 @@ Page({
       this.getCollectList();
     } else {
       wx.showToast({
-        title: '没有更多用户收藏了',
+        title: this.data.languageMap['没有更多用户收藏了'],
         icon: 'none',
         duration: 2000
       });
@@ -84,7 +84,7 @@ Page({
     if (touchTime > 350) {
       wx.showModal({
         title: '',
-        content: '确定删除吗？',
+        content: this.data.languageMap['确定删除吗？'],
         success: function(res) {
           if (res.confirm) {
 
@@ -95,7 +95,7 @@ Page({
               if (res.errno === 0) {
                 console.log(res.data);
                 wx.showToast({
-                  title: '删除成功',
+                  title: this.data.languageMap['删除成功'],
                   icon: 'success',
                   duration: 2000
                 });

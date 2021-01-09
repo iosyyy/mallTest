@@ -21,15 +21,15 @@ Page({
     openSelectRegion: false,
     selectRegionList: [{
         code: 0,
-        name: '省份'
+        name: this.data.languageMap['省份']
       },
       {
         code: 0,
-        name: '城市'
+        name: this.data.languageMap['城市']
       },
       {
         code: 0,
-        name: '区县'
+        name:this.data.languageMap['区县']
       }
     ],
     regionType: 1,
@@ -128,15 +128,15 @@ Page({
     } else {
       let selectRegionList = [{
             code: 0,
-            name: '省份',
+            name: this.data.languageMap['省份'],
           },
           {
             code: 0,
-            name: '城市',
+            name: this.data.languageMap['城市'],
           },
           {
             code: 0,
-            name: '区县',
+            name: this.data.languageMap['区县'],
           }
         ];
 
@@ -251,7 +251,7 @@ Page({
     selectRegionList.map((item, index) => {
       if (index > regionType - 1) {
         item.code = 0;
-        item.name = index == 1 ? '城市' : '区县';
+        item.name = index == 1 ? this.data.languageMap['城市'] : this.data.languageMap['区县'];
       }
       return item;
     });
@@ -311,24 +311,24 @@ Page({
     let address = this.data.address;
 
     if (address.name == '') {
-      util.showErrorToast('请输入姓名');
+      util.showErrorToast(this.data.languageMap['请输入姓名']);
 
       return false;
     }
 
     if (address.tel == '') {
-      util.showErrorToast('请输入手机号码');
+      util.showErrorToast(this.data.languageMap['请输入手机号码']);
       return false;
     }
 
 
     if (address.areaCode == 0) {
-      util.showErrorToast('请输入省市区');
+      util.showErrorToast(this.data.languageMap['请输入省市区']);
       return false;
     }
 
     if (address.addressDetail == '') {
-      util.showErrorToast('请输入详细地址');
+      util.showErrorToast(this.data.languageMap['请输入详细地址']);
       return false;
     }
 

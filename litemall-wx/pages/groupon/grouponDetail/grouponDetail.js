@@ -37,8 +37,8 @@ Page({
   onShareAppMessage: function() {
     let that = this;
     return {
-      title: languageMap['邀请团购'],
-      desc: languageMap['唯爱与美食不可辜负'],
+      title: this.data.languageMap['邀请团购'],
+      desc: this.data.languageMap['唯爱与美食不可辜负'],
       path: '/pages/index/index?grouponId=' + this.data.id
     }
   },
@@ -49,13 +49,13 @@ Page({
     }).then(function(res) {
       if (res.errno === 0) {
         let _steps = [{
-            text: languageMap['已开团']
+            text: this.data.languageMap['已开团']
           },
           {
-            text: languageMap['开团中']
+            text: this.data.languageMap['开团中']
           },
           {
-            text: languageMap['开团成功']
+            text: this.data.languageMap['开团成功']
           }
         ]
         let _active = res.data.groupon.status
@@ -63,13 +63,13 @@ Page({
         let _activeColor = '#07c160'
         if (res.data.groupon.status === 3) {
           _steps = [{
-              text: languageMap['已开团']
+              text: this.data.languageMap['已开团']
             },
             {
-              text: languageMap['开团中']
+              text: this.data.languageMap['开团中']
             },
             {
-              text: languageMap['开团失败']
+              text: this.data.languageMap['开团失败']
             }
           ]
           _active = 2

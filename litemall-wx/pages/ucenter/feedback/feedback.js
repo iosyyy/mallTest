@@ -6,7 +6,7 @@ var app = getApp();
 
 Page({
   data: {
-    array: ['请选择反馈类型', '商品相关', '功能异常', '优化建议', '其他'],
+    array: [this.data.languageMap['请选择反馈类型'], this.data.languageMap['商品相关'], this.data.languageMap['功能异常'], this.data.languageMap['优化建议'], this.data.languageMap['其他']],
     index: 0,
     content: '',
     contentLength: 0,
@@ -17,7 +17,7 @@ Page({
   },
   chooseImage: function(e) {
     if (this.data.files.length >= 5) {
-      util.showErrorToast('只能上传五张图片')
+      util.showErrorToast(this.data.languageMap['只能上传五张图片'])
       return false;
     }
 
@@ -53,8 +53,8 @@ Page({
       },
       fail: function(e) {
         wx.showModal({
-          title: '错误',
-          content: '上传失败',
+          title: this.data.languageMap['错误'],
+          content: this.data.languageMap['上传失败'],
           showCancel: false
         })
       },
@@ -103,22 +103,22 @@ Page({
 
     let that = this;
     if (that.data.index == 0) {
-      util.showErrorToast('请选择反馈类型');
+      util.showErrorToast(this.data.languageMap['请选择反馈类型']);
       return false;
     }
 
     if (that.data.content == '') {
-      util.showErrorToast('请输入反馈内容');
+      util.showErrorToast(this.data.languageMap['请输入反馈内容']);
       return false;
     }
 
     if (that.data.mobile == '') {
-      util.showErrorToast('请输入手机号码');
+      util.showErrorToast(this.data.languageMap['请输入手机号码']);
       return false;
     }
 
     wx.showLoading({
-      title: '提交中...',
+      title: this.data.languageMap['提交中...'],
       mask: true,
       success: function() {
 
@@ -136,7 +136,7 @@ Page({
 
       if (res.errno === 0) {
         wx.showToast({
-          title: '感谢您的反馈！',
+          title: this.data.languageMap['感谢您的反馈！'],
           icon: 'success',
           duration: 2000,
           complete: function() {

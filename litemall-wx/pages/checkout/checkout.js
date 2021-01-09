@@ -72,7 +72,7 @@ Page({
   onShow: function() {
     // 页面显示
     wx.showLoading({
-      title: languageMap['加载中...'],
+      title: this.data.languageMap['加载中...'],
     });
     try {
       var cartId = wx.getStorageSync('cartId');
@@ -116,7 +116,7 @@ Page({
   },
   submitOrder: function() {
     if (this.data.addressId <= 0) {
-      util.showErrorToast(languageMap['请选择收货地址']);
+      util.showErrorToast(this.data.languageMap['请选择收货地址']);
       return false;
     }
     util.request(api.OrderSubmit, {

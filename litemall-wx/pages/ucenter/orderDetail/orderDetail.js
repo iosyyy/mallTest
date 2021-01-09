@@ -41,7 +41,7 @@ Page({
   },
   getOrderDetail: function() {
     wx.showLoading({
-      title: '加载中',
+      title: this.data.languageMap['加载中'],
     });
 
     setTimeout(function() {
@@ -86,7 +86,7 @@ Page({
           },
           'fail': function(res) {
             console.log("支付过程失败");
-            util.showErrorToast('支付失败');
+            util.showErrorToast(this.data.languageMap['支付失败']);
           },
           'complete': function(res) {
             console.log("支付过程结束")
@@ -103,7 +103,7 @@ Page({
 
     wx.showModal({
       title: '',
-      content: '确定要取消此订单？',
+      content: this.data.languageMap['确定要取消此订单？'],
       success: function(res) {
         if (res.confirm) {
           util.request(api.OrderCancel, {
@@ -111,7 +111,7 @@ Page({
           }, 'POST').then(function(res) {
             if (res.errno === 0) {
               wx.showToast({
-                title: '取消订单成功'
+                title: this.data.languageMap['取消订单成功']
               });
               util.redirect('/pages/ucenter/order/order');
             } else {
@@ -129,7 +129,7 @@ Page({
 
     wx.showModal({
       title: '',
-      content: '确定要取消此订单？',
+      content: this.data.languageMap['确定要取消此订单？'],
       success: function(res) {
         if (res.confirm) {
           util.request(api.OrderRefund, {
@@ -137,7 +137,7 @@ Page({
           }, 'POST').then(function(res) {
             if (res.errno === 0) {
               wx.showToast({
-                title: '取消订单成功'
+                title: this.data.languageMap['取消订单成功']
               });
               util.redirect('/pages/ucenter/order/order');
             } else {
@@ -155,7 +155,7 @@ Page({
 
     wx.showModal({
       title: '',
-      content: '确定要删除此订单？',
+      content: this.data.languageMap['确定要删除此订单？'],
       success: function(res) {
         if (res.confirm) {
           util.request(api.OrderDelete, {
@@ -163,7 +163,7 @@ Page({
           }, 'POST').then(function(res) {
             if (res.errno === 0) {
               wx.showToast({
-                title: '删除订单成功'
+                title: this.data.languageMap['删除订单成功']
               });
               util.redirect('/pages/ucenter/order/order');
             } else {
@@ -181,7 +181,7 @@ Page({
 
     wx.showModal({
       title: '',
-      content: '确认收货？',
+      content: this.data.languageMap['确认收货？'],
       success: function(res) {
         if (res.confirm) {
           util.request(api.OrderConfirm, {
@@ -189,7 +189,7 @@ Page({
           }, 'POST').then(function(res) {
             if (res.errno === 0) {
               wx.showToast({
-                title: '确认收货成功！'
+                title: this.data.languageMap['确认收货成功！']
               });
               util.redirect('/pages/ucenter/order/order');
             } else {

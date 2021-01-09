@@ -39,7 +39,7 @@ Page({
     let that = this;
     return {
       title: that.data.goods.name,
-      desc: languageMap['唯爱与美食不可辜负'],
+      desc: this.data.languageMap['唯爱与美食不可辜负'],
       path: '/pages/index/index?goodId=' + this.data.id
     }
   },
@@ -59,8 +59,8 @@ Page({
       // console.log(e)
       if (!e.detail.authSetting['scope.writePhotosAlbum']) {
           wx.showModal({
-              title: languageMap['警告'],
-              content: languageMap['不授权无法保存'],
+              title: this.data.languageMap['警告'],
+              content: this.data.languageMap['不授权无法保存'],
               showCancel: false
           })
           that.setData({
@@ -68,7 +68,7 @@ Page({
           })
       } else {
           wx.showToast({
-              title: languageMap['保存成功']
+              title: this.data.languageMap['保存成功']
           })
           that.setData({
               canWrite: true
@@ -86,10 +86,10 @@ Page({
           filePath: res.tempFilePath,
           success: function(res) {
             wx.showModal({
-              title: languageMap['生成海报成功'],
-              content: languageMap['海报已成功保存到相册，可以分享到朋友圈了'],
+              title: this.data.languageMap['生成海报成功'],
+              content: this.data.languageMap['海报已成功保存到相册，可以分享到朋友圈了'],
               showCancel: false,
-              confirmText: languageMap['好的'],
+              confirmText: this.data.languageMap['好的'],
               confirmColor: '#a78845',
               success: function(res) {
                 if (res.confirm) {
@@ -152,7 +152,7 @@ Page({
 
             that.setData({
               checkedSpecText: _specificationList[0].valueList[0].value,
-              tmpSpecText: languageMap['已选择：'] + _specificationList[0].valueList[0].value
+              tmpSpecText: this.data.languageMap['已选择：'] + _specificationList[0].valueList[0].value
             });
           }
         }
@@ -358,7 +358,7 @@ Page({
       });
     } else {
       this.setData({
-        tmpSpecText: languageMap['请选择规格数量']
+        tmpSpecText: this.data.languageMap['请选择规格数量']
       });
     }
 
@@ -394,7 +394,7 @@ Page({
 
     } else {
       this.setData({
-        checkedSpecText:languageMap[ '规格数量选择'],
+        checkedSpecText:this.data.languageMap[ '规格数量选择'],
         checkedSpecPrice: this.data.goods.retailPrice,
         soldout: false
       });
@@ -420,8 +420,8 @@ Page({
       languageMap:app.globalData.languageMap
     })
     this.setData({
-      checkedSpecText: languageMap['规格数量选择'],
-      tmpSpecText: languageMap['请选择规格数量']
+      checkedSpecText: this.data.languageMap['规格数量选择'],
+      tmpSpecText: this.data.languageMap['请选择规格数量']
     })
     wx.setNavigationBarTitle({
       title:app.globalData.languageMap['商品']
@@ -516,7 +516,7 @@ Page({
 
       //提示选择完整规格
       if (!this.isCheckedAllSpec()) {
-        util.showErrorToast(languageMap['请选择完整规格']);
+        util.showErrorToast(this.data.languageMap['请选择完整规格']);
         return false;
       }
 
@@ -524,14 +524,14 @@ Page({
       let checkedProductArray = this.getCheckedProductItem(this.getCheckedSpecKey());
       if (!checkedProductArray || checkedProductArray.length <= 0) {
         //找不到对应的product信息，提示没有库存
-        util.showErrorToast(languageMap['没有库存']);
+        util.showErrorToast(this.data.languageMap['没有库存']);
         return false;
       }
 
       let checkedProduct = checkedProductArray[0];
       //验证库存
       if (checkedProduct.number <= 0) {
-        util.showErrorToast(languageMap['没有库存']);
+        util.showErrorToast(this.data.languageMap['没有库存']);
         return false;
       }
 
@@ -578,7 +578,7 @@ Page({
 
       //提示选择完整规格
       if (!this.isCheckedAllSpec()) {
-        util.showErrorToast(languageMap['请选择完整规格']);
+        util.showErrorToast(this.data.languageMap['请选择完整规格']);
         return false;
       }
 
@@ -586,14 +586,14 @@ Page({
       let checkedProductArray = this.getCheckedProductItem(this.getCheckedSpecKey());
       if (!checkedProductArray || checkedProductArray.length <= 0) {
         //找不到对应的product信息，提示没有库存
-        util.showErrorToast(languageMap['没有库存']);
+        util.showErrorToast(this.data.languageMap['没有库存']);
         return false;
       }
 
       let checkedProduct = checkedProductArray[0];
       //验证库存
       if (checkedProduct.number <= 0) {
-        util.showErrorToast(languageMap['没有库存']);
+        util.showErrorToast(this.data.languageMap['没有库存']);
         return false;
       }
 
@@ -607,7 +607,7 @@ Page({
           let _res = res;
           if (_res.errno == 0) {
             wx.showToast({
-              title: languageMap['添加成功']
+              title: this.data.languageMap['添加成功']
             });
             that.setData({
               openAttr: !that.data.openAttr,

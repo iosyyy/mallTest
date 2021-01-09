@@ -61,7 +61,7 @@ Page({
     });
     // 页面渲染完成
     wx.showToast({
-      title: languageMap['加载中...'],
+      title: this.data.languageMap['加载中...'],
       icon: 'loading',
       duration: 2000
     });

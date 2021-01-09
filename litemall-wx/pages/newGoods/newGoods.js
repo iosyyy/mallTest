@@ -47,7 +47,7 @@ Page({
     })
     this.setData({
       bannerInfo: {
-        'name': languageMap['大家都在买的']
+        'name': this.data.languageMap['大家都在买的']
       }
     })
     wx.setNavigationBarTitle({

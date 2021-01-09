@@ -9,7 +9,7 @@ Page({
     aftersale: {
       pictures: []
     },
-    columns: ['未收货退款', '不退货退款', '退货退款'],
+    columns: [this.data.languageMap['未收货退款'], this.data.languageMap['不退货退款'], this.data.languageMap['退货退款']],
     contentLength: 0,
     fileList: []
   },
@@ -32,7 +32,7 @@ Page({
   },
   getOrderDetail: function () {
     wx.showLoading({
-      title: '加载中',
+      title: this.data.languageMap['加载中'],
     });
 
     setTimeout(function () {
@@ -84,8 +84,8 @@ Page({
       },
       fail: function (e) {
         wx.showModal({
-          title: '错误',
-          content: '上传失败',
+          title: this.data.languageMap['错误'],
+          content: this.data.languageMap['上传失败'],
           showCancel: false
         })
       },
@@ -129,12 +129,12 @@ Page({
   submit: function () {
     let that = this;
     if (that.data.aftersale.type == undefined) {
-      util.showErrorToast('请选择退款类型');
+      util.showErrorToast(this.data.languageMap['请选择退款类型']);
       return false;
     }
 
     if (that.data.reason == '') {
-      util.showErrorToast('请输入退款原因');
+      util.showErrorToast(this.data.languageMap['请输入退款原因']);
       return false;
     }
 
@@ -151,7 +151,7 @@ Page({
 
       if (res.errno === 0) {
         wx.showToast({
-          title: '申请售后成功',
+          title: this.data.languageMap['申请售后成功'],
           icon: 'success',
           duration: 2000,
           complete: function () {

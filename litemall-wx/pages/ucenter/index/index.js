@@ -6,7 +6,7 @@ var app = getApp();
 Page({
   data: {
     userInfo: {
-      nickName: '点击登录',
+      nickName: this.data.languageMap['点击登录'],
       avatarUrl: '/static/images/my.png'
     },
     order: {
@@ -174,7 +174,7 @@ Page({
 
     if (!this.data.hasLogin) {
       wx.showToast({
-        title: '绑定失败：请先登录',
+        title: this.data.languageMap['绑定失败：请先登录'],
         icon: 'none',
         duration: 2000
       });
@@ -187,7 +187,7 @@ Page({
     }, 'POST').then(function(res) {
       if (res.errno === 0) {
         wx.showToast({
-          title: '绑定手机号码成功',
+          title: this.data.languageMap['绑定手机号码成功'],
           icon: 'success',
           duration: 2000
         });
@@ -219,7 +219,7 @@ Page({
     wx.showModal({
       title: '',
       confirmColor: '#b4282d',
-      content: '退出登录？',
+      content: this.data.languageMap['退出登录？'],
       success: function(res) {
         if (!res.confirm) {
           return;

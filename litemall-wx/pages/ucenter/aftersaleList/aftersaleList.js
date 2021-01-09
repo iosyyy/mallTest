@@ -45,7 +45,7 @@ Page({
       this.getAftersaleList();
     } else {
       wx.showToast({
-        title: '没有更多售后了',
+        title: this.data.languageMap['没有更多售后了'],
         icon: 'none',
         duration: 2000
       });

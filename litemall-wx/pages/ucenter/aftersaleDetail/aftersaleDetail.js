@@ -7,8 +7,8 @@ Page({
     order: {},
     orderGoods: [],
     aftersale: {},
-    statusColumns: ['未申请', '已申请，待审核', '审核通过，待退款', '退款成功', '审核不通过，已拒绝'],
-    typeColumns: ['未收货退款', '不退货退款', '退货退款'],
+    statusColumns: [this.data.languageMap['未申请'], this.data.languageMap['已申请，待审核'], this.data.languageMap['审核通过，待退款'], this.data.languageMap['退款成功'], this.data.languageMap['审核不通过，已拒绝']],
+    typeColumns: [this.data.languageMap['未收货退款'], this.data.languageMap['不退货退款'], this.data.languageMap['退货退款']],
     fileList: []
   },
   onLoad: function (options) {
@@ -30,7 +30,7 @@ Page({
   },
   getAftersaleDetail: function () {
     wx.showLoading({
-      title: '加载中',
+      title: this.data.languageMap['加载中'],
     });
 
     setTimeout(function () {

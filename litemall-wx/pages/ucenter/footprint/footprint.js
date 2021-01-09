@@ -12,7 +12,7 @@ Page({
   },
   getFootprintList() {
     wx.showLoading({
-      title: '加载中...',
+      title: this.data.languageMap['加载中...'],
     });
     let that = this;
     util.request(api.FootprintList, {
@@ -54,7 +54,7 @@ Page({
     if (touchTime > 350) {
       wx.showModal({
         title: '',
-        content: '要删除所选足迹？',
+        content: this.data.languageMap['要删除所选足迹？'],
         success: function(res) {
           if (res.confirm) {
             util.request(api.FootprintDelete, {
@@ -62,7 +62,7 @@ Page({
             }, 'POST').then(function(res) {
               if (res.errno === 0) {
                 wx.showToast({
-                  title: '删除成功',
+                  title: this.data.languageMap['删除成功'],
                   icon: 'success',
                   duration: 2000
                 });
@@ -106,7 +106,7 @@ Page({
       this.getFootprintList();
     } else {
       wx.showToast({
-        title: '没有更多用户足迹了',
+        title: this.data.languageMap['没有更多用户足迹了'],
         icon: 'none',
         duration: 2000
       });
