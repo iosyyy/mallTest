@@ -6,7 +6,7 @@ Page({
   data: {
     bannerInfo: {
       'imgUrl': '/static/images/hot.png',
-      'name': '大家都在买的'
+      'name': ''
     },
     categoryFilter: false,
     filterCategory: [],
@@ -59,6 +59,11 @@ Page({
     var app = getApp()
     this.setData({
       languageMap:app.globalData.languageMap
+    })
+    this.setData({
+      bannerInfo: {
+        'name': languageMap['大家都在买的']
+      }
     })
     wx.setNavigationBarTitle({
       title:app.globalData.languageMap['人气推荐']

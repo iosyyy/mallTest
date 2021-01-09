@@ -35,11 +35,11 @@ wx.setNavigationBarTitle({
   wxLogin: function(e) {
     if (e.detail.userInfo == undefined) {
      app.globalData.hasLogin = false;
-       util.showErrorToast('微信登录失败');
+       util.showErrorToast(languageMap['微信登录失败']);
       return;
     }
     wx.showToast({
-      title: '正在登录中...',
+      title: languageMap['正在登录中...'],
       image:'../../../static/images/loading.gif ',
       mask:true
     })
@@ -55,7 +55,7 @@ wx.setNavigationBarTitle({
         })
       }).catch((err) => {
         app.globalData.hasLogin = false;
-        util.showErrorToast('微信登录失败');
+        util.showErrorToast(languageMapp['微信登录失败']);
       });
     });
     

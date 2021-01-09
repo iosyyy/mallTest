@@ -61,7 +61,7 @@ Page({
           },
           'fail': function(res) {
             console.log("支付过程失败")
-            util.showErrorToast('支付失败');
+            util.showErrorToast(languageMap['支付失败']);
           },
           'complete': function(res) {
             console.log("支付过程结束")

@@ -30,7 +30,7 @@ Page({
     //CatalogList
     let that = this;
     wx.showLoading({
-      title: '加载中...',
+      title: languageMap['加载中...'],
     });
     util.request(api.CatalogList).then(function(res) {
       that.setData({

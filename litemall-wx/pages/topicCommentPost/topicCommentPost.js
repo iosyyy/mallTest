@@ -16,7 +16,7 @@ Page({
   },
   chooseImage: function(e) {
     if (this.data.files.length >= 5) {
-      util.showErrorToast('只能上传五张图片')
+      util.showErrorToast(languageMap['只能上传五张图片'])
       return false;
     }
 
@@ -76,15 +76,15 @@ Page({
     var star = e.currentTarget.dataset.star + 1;
     var starText;
     if (star == 1) {
-      starText = '很差';
+      starText = languageMap['很差'];
     } else if (star == 2) {
-      starText = '不太满意';
+      starText = languageMap['不太满意'];
     } else if (star == 3) {
-      starText = '满意';
+      starText = languageMap['满意'];
     } else if (star == 4) {
-      starText = '比较满意';
+      starText = languageMap['比较满意'];
     } else {
-      starText = '十分满意'
+      starText = languageMap['十分满意']
     }
     this.setData({
       star: star,
@@ -96,6 +96,9 @@ Page({
     var app = getApp()
     this.setData({
       languageMap:app.globalData.languageMap
+    })
+    this.setData({
+    starText: languageMap['十分满意'],
     })
     wx.setNavigationBarTitle({
       title:app.globalData.languageMap['专题评论添加']
@@ -132,7 +135,7 @@ Page({
     let that = this;
 
     if (!this.data.content) {
-      util.showErrorToast('请填写评论')
+      util.showErrorToast(languageMap['请填写评论'])
       return false;
     }
 
@@ -146,7 +149,7 @@ Page({
     }, 'POST').then(function(res) {
       if (res.errno === 0) {
         wx.showToast({
-          title: '评论成功',
+          title: languageMap['评论成功'],
           complete: function() {
             wx.navigateBack();
           }

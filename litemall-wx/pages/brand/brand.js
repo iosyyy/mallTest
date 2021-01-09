@@ -23,7 +23,7 @@ Page({
   },
   getBrandList: function() {
     wx.showLoading({
-      title: '加载中...',
+      title: languageMap['加载中...'],
     });
     let that = this;
     util.request(api.BrandList, {

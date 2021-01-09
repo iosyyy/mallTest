@@ -20,8 +20,8 @@ Page({
 
   onShareAppMessage: function() {
     return {
-      title: 'litemall小程序商场',
-      desc: '开源微信小程序商城',
+      title: languageMap['多国语言电商平台'],
+      desc: languageMap['多国语言电商平台'],
       path: '/pages/index/index'
     }
   },
