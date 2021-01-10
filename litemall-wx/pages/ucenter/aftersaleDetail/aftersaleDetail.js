@@ -7,8 +7,7 @@ Page({
     order: {},
     orderGoods: [],
     aftersale: {},
-    statusColumns: [this.data.languageMap['未申请'], this.data.languageMap['已申请，待审核'], this.data.languageMap['审核通过，待退款'], this.data.languageMap['退款成功'], this.data.languageMap['审核不通过，已拒绝']],
-    typeColumns: [this.data.languageMap['未收货退款'], this.data.languageMap['不退货退款'], this.data.languageMap['退货退款']],
+    
     fileList: []
   },
   onLoad: function (options) {
@@ -24,7 +23,9 @@ Page({
     })
     // 页面初始化 options为页面跳转所带来的参数
     this.setData({
-      orderId: options.id
+      orderId: options.id,
+      statusColumns: [this.data.languageMap['未申请'], this.data.languageMap['已申请，待审核'], this.data.languageMap['审核通过，待退款'], this.data.languageMap['退款成功'], this.data.languageMap['审核不通过，已拒绝']],
+    typeColumns: [this.data.languageMap['未收货退款'], this.data.languageMap['不退货退款'], this.data.languageMap['退货退款']],
     });
     this.getAftersaleDetail();
   },

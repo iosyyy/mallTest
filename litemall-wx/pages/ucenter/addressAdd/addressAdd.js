@@ -19,19 +19,7 @@ Page({
     },
     addressId: 0,
     openSelectRegion: false,
-    selectRegionList: [{
-        code: 0,
-        name: this.data.languageMap['省份']
-      },
-      {
-        code: 0,
-        name: this.data.languageMap['城市']
-      },
-      {
-        code: 0,
-        name:this.data.languageMap['区县']
-      }
-    ],
+    
     regionType: 1,
     regionList: [],
     selectRegionDone: false
@@ -155,7 +143,22 @@ Page({
     var that = this
     var app = getApp()
     this.setData({
-      languageMap:app.globalData.languageMap
+      languageMap:app.globalData.languageMap,
+    })
+    this.setData({
+      selectRegionList: [{
+        code: 0,
+        name: this.data.languageMap['省份']
+      },
+      {
+        code: 0,
+        name: this.data.languageMap['城市']
+      },
+      {
+        code: 0,
+        name:this.data.languageMap['区县']
+      }
+    ]
     })
     wx.setNavigationBarTitle({
       title:app.globalData.languageMap['我的地址添加']

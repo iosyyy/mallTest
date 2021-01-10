@@ -5,10 +5,7 @@ var app = getApp();
 
 Page({
   data: {
-    userInfo: {
-      nickName: this.data.languageMap['点击登录'],
-      avatarUrl: '/static/images/my.png'
-    },
+
     order: {
       unpaid: 0,
       unship: 0,
@@ -16,30 +13,35 @@ Page({
       uncomment: 0
     },
     hasLogin: false,
-    actionSheetHidden:true,
-    typeArray:['简体中文','english']
+    actionSheetHidden: true,
+    typeArray: ['简体中文', 'english']
   },
-  onLoad: function(options) {
+  onLoad: function (options) {
     //首次设置语言
     var that = this
     var app = getApp()
     this.setData({
-      languageMap:app.globalData.languageMap
+      languageMap: app.globalData.languageMap
     })
     wx.setNavigationBarTitle({
-      title:app.globalData.languageMap['个人中心']
-      ,
+      title: app.globalData.languageMap['个人中心'],
+    })
+    this.setData({
+      userInfo: {
+        nickName: this.data.languageMap['点击登录'],
+        avatarUrl: '/static/images/my.png'
+      },
     })
     // 页面初始化 options为页面跳转所带来的参数
   },
-  onReady: function() {
+  onReady: function () {
 
   },
-  onShow: function() {
+  onShow: function () {
     var that = this
     var app = getApp()
     this.setData({
-      languageMap:app.globalData.languageMap
+      languageMap: app.globalData.languageMap
     })
     //获取用户的登录信息
     if (app.globalData.hasLogin) {
@@ -50,7 +52,7 @@ Page({
       });
 
       let that = this;
-      util.request(api.UserIndex).then(function(res) {
+      util.request(api.UserIndex).then(function (res) {
         if (res.errno === 0) {
           that.setData({
             order: res.data.order
@@ -60,11 +62,11 @@ Page({
     }
 
   },
-  onHide: function() {
+  onHide: function () {
     // 页面隐藏
 
   },
-  onUnload: function() {
+  onUnload: function () {
     // 页面关闭
   },
   goLogin() {
@@ -101,9 +103,9 @@ Page({
       }
       wx.navigateTo({
         url: route,
-        success: function(res) {},
-        fail: function(res) {},
-        complete: function(res) {},
+        success: function (res) {},
+        fail: function (res) {},
+        complete: function (res) {},
       })
     } else {
       wx.navigateTo({
@@ -166,7 +168,7 @@ Page({
       });
     };
   },
-  bindPhoneNumber: function(e) {
+  bindPhoneNumber: function (e) {
     if (e.detail.errMsg !== "getPhoneNumber:ok") {
       // 拒绝授权
       return;
@@ -184,7 +186,7 @@ Page({
     util.request(api.AuthBindPhone, {
       iv: e.detail.iv,
       encryptedData: e.detail.encryptedData
-    }, 'POST').then(function(res) {
+    }, 'POST').then(function (res) {
       if (res.errno === 0) {
         wx.showToast({
           title: this.data.languageMap['绑定手机号码成功'],
@@ -194,7 +196,7 @@ Page({
       }
     });
   },
-  goAfterSale: function() {
+  goAfterSale: function () {
     if (this.data.hasLogin) {
       wx.navigateTo({
         url: "/pages/ucenter/aftersaleList/aftersaleList"
@@ -205,7 +207,7 @@ Page({
       });
     };
   },
-  aboutUs: function() {
+  aboutUs: function () {
     wx.navigateTo({
       url: '/pages/about/about'
     });
@@ -214,13 +216,13 @@ Page({
     wx.navigateTo({
       url: '/pages/help/help'
     });
-  },  
-  exitLogin: function() {
+  },
+  exitLogin: function () {
     wx.showModal({
       title: '',
       confirmColor: '#b4282d',
       content: this.data.languageMap['退出登录？'],
-      success: function(res) {
+      success: function (res) {
         if (!res.confirm) {
           return;
         }
@@ -236,31 +238,30 @@ Page({
     })
 
   },
-  goSwitch(){
+  goSwitch() {
     this.setData({
-      actionSheetHidden:false
+      actionSheetHidden: false
     })
-    
+
   },
-  listenerActionSheet(){
+  listenerActionSheet() {
     this.setData({
-      actionSheetHidden:true
+      actionSheetHidden: true
     })
   },
-  changeLanguage(e){
+  changeLanguage(e) {
     var index = e.target.dataset.index
-    console.log("index:"+index);
+    console.log("index:" + index);
     util.changeLanguage(index)
     var app = getApp()
     this.setData({
-      languageMap:app.globalData.languageMap
+      languageMap: app.globalData.languageMap
     })
     wx.setNavigationBarTitle({
-      title:app.globalData.languageMap['个人中心']
-      ,
+      title: app.globalData.languageMap['个人中心'],
     })
     this.setData({
-      actionSheetHidden:true
+      actionSheetHidden: true
     })
   }
 })

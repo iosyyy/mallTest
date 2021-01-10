@@ -9,7 +9,7 @@ Page({
     aftersale: {
       pictures: []
     },
-    columns: [this.data.languageMap['未收货退款'], this.data.languageMap['不退货退款'], this.data.languageMap['退货退款']],
+
     contentLength: 0,
     fileList: []
   },
@@ -18,11 +18,13 @@ Page({
     var that = this
     var app = getApp()
     this.setData({
-      languageMap:app.globalData.languageMap
+      languageMap: app.globalData.languageMap
     })
     wx.setNavigationBarTitle({
-      title:app.globalData.languageMap['申请售后']
-      ,
+      title: app.globalData.languageMap['申请售后'],
+    })
+    this.setData({
+      columns: [this.data.languageMap['未收货退款'], this.data.languageMap['不退货退款'], this.data.languageMap['退货退款']]
     })
     // 页面初始化 options为页面跳转所带来的参数
     this.setData({
@@ -56,15 +58,19 @@ Page({
       wx.hideLoading();
     });
   },
-  deleteImage (event) {
-    const { fileList = [] } = this.data;
+  deleteImage(event) {
+    const {
+      fileList = []
+    } = this.data;
     fileList.splice(event.detail.index, 1)
     this.setData({
       fileList: fileList
     })
   },
   afterRead(event) {
-    const { file } = event.detail
+    const {
+      file
+    } = event.detail
     let that = this
     const uploadTask = wx.uploadFile({
       url: api.StorageUpload,
@@ -75,8 +81,13 @@ Page({
         if (_res.errno === 0) {
           var url = _res.data.url
           that.data.aftersale.pictures.push(url)
-          const { fileList = [] } = that.data;
-          fileList.push({ ...file, url: url });
+          const {
+            fileList = []
+          } = that.data;
+          fileList.push({
+            ...file,
+            url: url
+          });
           that.setData({
             fileList: fileList
           })

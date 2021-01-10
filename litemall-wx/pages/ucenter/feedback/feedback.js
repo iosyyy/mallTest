@@ -6,7 +6,7 @@ var app = getApp();
 
 Page({
   data: {
-    array: [this.data.languageMap['请选择反馈类型'], this.data.languageMap['商品相关'], this.data.languageMap['功能异常'], this.data.languageMap['优化建议'], this.data.languageMap['其他']],
+
     index: 0,
     content: '',
     contentLength: 0,
@@ -15,7 +15,7 @@ Page({
     picUrls: [],
     files: []
   },
-  chooseImage: function(e) {
+  chooseImage: function (e) {
     if (this.data.files.length >= 5) {
       util.showErrorToast(this.data.languageMap['只能上传五张图片'])
       return false;
@@ -26,7 +26,7 @@ Page({
       count: 1,
       sizeType: ['original', 'compressed'],
       sourceType: ['album', 'camera'],
-      success: function(res) {
+      success: function (res) {
         that.setData({
           files: that.data.files.concat(res.tempFilePaths)
         });
@@ -34,13 +34,13 @@ Page({
       }
     })
   },
-  upload: function(res) {
+  upload: function (res) {
     var that = this;
     const uploadTask = wx.uploadFile({
       url: api.StorageUpload,
       filePath: res.tempFilePaths[0],
       name: 'file',
-      success: function(res) {
+      success: function (res) {
         var _res = JSON.parse(res.data);
         if (_res.errno === 0) {
           var url = _res.data.url
@@ -51,7 +51,7 @@ Page({
           })
         }
       },
-      fail: function(e) {
+      fail: function (e) {
         wx.showModal({
           title: this.data.languageMap['错误'],
           content: this.data.languageMap['上传失败'],
@@ -67,34 +67,34 @@ Page({
     })
 
   },
-  previewImage: function(e) {
+  previewImage: function (e) {
     wx.previewImage({
       current: e.currentTarget.id, // 当前显示图片的http链接
       urls: this.data.files // 需要预览的图片http链接列表
     })
   },
-  bindPickerChange: function(e) {
+  bindPickerChange: function (e) {
     this.setData({
       index: e.detail.value
     });
   },
-  mobileInput: function(e) {
+  mobileInput: function (e) {
     this.setData({
       mobile: e.detail.value
     });
   },
-  contentInput: function(e) {
+  contentInput: function (e) {
     this.setData({
       contentLength: e.detail.cursor,
       content: e.detail.value,
     });
   },
-  clearMobile: function(e) {
+  clearMobile: function (e) {
     this.setData({
       mobile: ''
     });
   },
-  submitFeedback: function(e) {
+  submitFeedback: function (e) {
     if (!app.globalData.hasLogin) {
       wx.navigateTo({
         url: "/pages/auth/login/login"
@@ -120,7 +120,7 @@ Page({
     wx.showLoading({
       title: this.data.languageMap['提交中...'],
       mask: true,
-      success: function() {
+      success: function () {
 
       }
     });
@@ -131,7 +131,7 @@ Page({
       content: that.data.content,
       hasPicture: that.data.hasPicture,
       picUrls: that.data.picUrls
-    }, 'POST').then(function(res) {
+    }, 'POST').then(function (res) {
       wx.hideLoading();
 
       if (res.errno === 0) {
@@ -139,7 +139,7 @@ Page({
           title: this.data.languageMap['感谢您的反馈！'],
           icon: 'success',
           duration: 2000,
-          complete: function() {
+          complete: function () {
             that.setData({
               index: 0,
               content: '',
@@ -157,29 +157,31 @@ Page({
 
     });
   },
-  onLoad: function(options) {
-//首次设置语言
-var that = this
-var app = getApp()
-this.setData({
-  languageMap:app.globalData.languageMap
-})
-wx.setNavigationBarTitle({
-  title:app.globalData.languageMap['意见反馈']
-  ,
-})
+  onLoad: function (options) {
+    //首次设置语言
+    var that = this
+    var app = getApp()
+    this.setData({
+      languageMap: app.globalData.languageMap
+    })
+    wx.setNavigationBarTitle({
+      title: app.globalData.languageMap['意见反馈'],
+    })
+    this.setData({
+      array: [this.data.languageMap['请选择反馈类型'], this.data.languageMap['商品相关'], this.data.languageMap['功能异常'], this.data.languageMap['优化建议'], this.data.languageMap['其他']],
+    })
   },
-  onReady: function() {
+  onReady: function () {
 
   },
-  onShow: function() {
+  onShow: function () {
 
   },
-  onHide: function() {
+  onHide: function () {
     // 页面隐藏
 
   },
-  onUnload: function() {
+  onUnload: function () {
     // 页面关闭
   }
 })
