@@ -70,7 +70,7 @@ Page({
       languageMap:app.globalData.languageMap
     })
     wx.setNavigationBarTitle({
-      title: app.globalData.languageMap['分类'],
+      title: app.globalData.languageMap['店铺'],
     })
   },
   onHide: function() {

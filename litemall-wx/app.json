@@ -63,7 +63,7 @@
         "pagePath": "pages/catalog/catalog",
         "iconPath": "static/images/category.png",
         "selectedIconPath": "static/images/category@selected.png",
-        "text": "分类"
+        "text": "店铺"
       },
       {
         "pagePath": "pages/cart/cart",

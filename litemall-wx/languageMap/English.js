@@ -31,7 +31,7 @@ module.exports = {
   //catalog
   '商品搜索, 共':'product search, total',
   '款好物':' goods',
-  '分类':'classification ',
+  '店铺':'Shop',
 
   //checkout
   '默认':'default',
