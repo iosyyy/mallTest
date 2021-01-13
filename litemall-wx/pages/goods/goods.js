@@ -149,10 +149,14 @@ Page({
             if (_productPrice != _goodsPrice) {
               console.error('商品数量价格和货品不一致');
             }
-
+            var k = that.data.languageMap['已选择：'] + _specificationList[0].valueList[0].value
             that.setData({
               checkedSpecText: _specificationList[0].valueList[0].value,
+<<<<<<< HEAD
               tmpSpecText: that.data.languageMap['已选择：'] + _specificationList[0].valueList[0].value
+=======
+              tmpSpecText: k
+>>>>>>> 73e3ea4a6ae3c0f66121cf4bfa309a68cbbf25fe
             });
           }
         }
