@@ -6,18 +6,6 @@
       <text class="txt">{{languageMap['商品搜索, 共 ']}}{{goodsCount}}{{languageMap['款好物']}}</text>
     </navigator>
   </view>
-  <swiper class="banner" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
-    <swiper-item wx:for="{{banner}}" wx:key="id">
-      <block wx:if="{{item.link>0}}">
-        <navigator url="/pages/goods/goods?id={{item.link}}">
-        <image src="{{item.url}}" background-size="cover"></image>
-        </navigator>
-      </block>
-      <block wx:else>
-        <image src="{{item.url}}" background-size="cover"></image>
-      </block>
-    </swiper-item>
-  </swiper>
   <view class="m-menu">
     <navigator class="item" url="/pages/category/category?id={{item.id}}" wx:for="{{channel}}" wx:key="id">
       <image src="{{item.iconUrl}}" background-size="cover"></image>
