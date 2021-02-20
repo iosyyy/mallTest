@@ -14,7 +14,7 @@ Page({
     },
     hasLogin: false,
     actionSheetHidden: true,
-    typeArray: ['简体中文', 'english']
+    typeArray: ['简体中文', 'english','日本語','русский','한국어']
   },
   onLoad: function (options) {
     //首次设置语言

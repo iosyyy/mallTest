@@ -94,6 +94,15 @@ function changeLanguage(index){
     case 1:
     app.globalData.languageMap = languageMaps['English']
     break;
+    case 2:
+    app.globalData.languageMap = languageMaps['Japanese']
+    break;
+    case 3:
+    app.globalData.languageMap = languageMaps['Russian']
+    break;
+    case 4:
+    app.globalData.languageMap = languageMaps['Korean']
+    break;
   } 
   console.log(app.globalData.languageMap);
 }
