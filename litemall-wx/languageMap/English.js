@@ -499,12 +499,12 @@ module.exports = {
   '标准': 'standard',
   '茶叶专卖': 'Shop Name: Tea Monopoly',
   '绿茶类': 'Green Tea',
-  '雀舌茶': 'Name: Bird\'s Tongue Tea',
+  '雀舌茶': 'Bird\'s Tongue Tea',
   '市场价': 'Market price',
 
   //about
   '克': 'gram',
-  '明前头采，千米高山，颗颗鲜嫩芽头:': 'Ming front mining, kilometer high mountain, chengxing fresh bud :',
+  '明前头采，千米高山，颗颗鲜嫩芽头': 'Ming front mining, kilometer high mountain, chengxing fresh bud ',
   '商品现价:': 'Current price of goods:',
 
   //auth/login
@@ -518,7 +518,7 @@ module.exports = {
   //cart
   '碧螺春': 'Biluochun',
   '克': 'gram',
-  '卷曲如螺，明前头采，特级嫩芽': 'Profile: Curly like a snail, bright ahead, super buds',
+  '卷曲如螺，明前头采，特级嫩芽': 'Curly like a snail, bright ahead, super buds',
   '炒青绿茶': 'Technology stir-fried green tea',
   '信阳毛尖茶': 'Xinyang Maojian Tea',
   '明前头采，特级嫩芽': 'Picking in front of the bright, super sprout ',
@@ -531,7 +531,7 @@ module.exports = {
 
 
   //catalog
-  '桐木原产 特级芽中芽': 'Profile: Paulownia original special-grade bud in bud ',
+  '桐木原产 特级芽中芽': 'Paulownia original special-grade bud in bud ',
   '传统手工工艺': 'traditional handcraft',
   '花茶': 'scented tea',
 
@@ -583,7 +583,7 @@ module.exports = {
   '脆甜多汁的羊角蜜给你初恋般的甜蜜滋味': 'Crunchy sweet juicy croissant honey gives you a sweet taste like your first love.',
   '温馨提示	阴凉干燥处保存：': 'Warm Tip\' Keep in a cool and dry place :',
   '富士苹果': 'Fuji Apple ',
-  '无农药不打蜡的健康苹果': 'Profile: Pesticide Free, Wax Free, Healthy Apples ',
+  '无农药不打蜡的健康苹果': 'Pesticide Free, Wax Free, Healthy Apples ',
   '无农药不打蜡的健康苹果': 'PESTICIDE FREE, NO WAX HEALTHY APPLE',
   '阴凉干燥处保存': 'Keep in a cool and dry place',
   '蓝莓': 'blueberry ',
