@@ -32,7 +32,7 @@ page {
 
 .lalala{
   margin: 0;
-  font-size: 45rpx;
+  font-size: 40rpx;
   line-height: 90rpx;
   height: 100%;
 }
