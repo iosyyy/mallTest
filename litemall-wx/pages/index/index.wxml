@@ -21,8 +21,8 @@
           <image class="img" src="{{item.picUrl}}" background-size="cover"></image>
           <view class="right">
             <view class="text">
-              <text class="name">{{item.name}}</text>
-              <text class="desc">{{item.brief}}</text>
+              <text class="name">{{languageMap[item.name]}}</text>
+              <text class="desc">{{languageMap[item.brief]}}</text>
               <text class="price">￥{{item.retailPrice}}</text>
             </view>
           </view>

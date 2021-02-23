@@ -6,7 +6,7 @@
   </swiper>
   <!-- 分享 -->
   <view class='goods_name'>
-    <view class='goods_name_left'>{{goods.name}}</view>
+    <view class='goods_name_left'>{{languageMap[goods.name]}}</view>
     <view hidden="{{!canShare}}" class="goods_name_right" bindtap="shareFriendOrCircle">{{languageMap['分享']}}</view>
   </view>
   <view class="share-pop-box" hidden="{{!openShare}}">
@@ -33,7 +33,7 @@
 
   <view class="goods-info">
     <view class="c">
-      <text class="desc">{{goods.brief}}</text>
+      <text class="desc">{{languageMap[goods.brief]}}</text>
       <view class="price">
         <view class="counterPrice">{{languageMap['原价']}}：￥{{goods.counterPrice}}</view>
         <view class="retailPrice">{{languageMap['现价']}}：￥{{checkedSpecPrice}}</view>
@@ -86,8 +86,8 @@
     <view class="t">{{languageMap['商品参数']}}</view>
     <view class="l">
       <view class="item" wx:for="{{attribute}}" wx:key="name">
-        <text class="left">{{item.attribute}}</text>
-        <text class="right">{{item.value}}</text>
+        <text class="left">{{languageMap[item.attribute]}}</text>
+        <text class="right">{{languageMap[item.value]}}</text>
       </view>
     </view>
   </view>
@@ -125,7 +125,7 @@
       <view class="item" wx:for="{{relatedGoods}}" wx:key="id">
         <navigator url="/pages/goods/goods?id={{item.id}}">
           <image class="img" src="{{item.picUrl}}" background-size="cover"></image>
-          <text class="name">{{item.name}}</text>
+          <text class="name">{{languageMap[item.name]}}</text>
           <text class="price">￥{{item.retailPrice}}</text>
         </navigator>
       </view>
