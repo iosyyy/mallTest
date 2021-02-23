@@ -52,10 +52,10 @@
       </view>
       <view class="info">
         <view class="t">
-          <text class="name">{{item.goodsName}}</text>
+          <text class="name">{{languageMap[item.goodsName]}}</text>
           <text class="number">x{{item.number}}</text>
         </view>
-        <view class="m">{{item.specifications}}</view>
+        <view class="m">{{languageMap[item.specifications]}}</view>
         <view class="b">￥{{item.price}}</view>
       </view>
     </view>
