@@ -27,7 +27,7 @@
                 <image class="img" src="{{item.picUrl}}"></image>
                 <view class="info">
                   <view class="t">
-                    <text class="name">{{item.goodsName}}</text>
+                    <text class="name">{{languageMap[item.goodsName]}}</text>
                     <text class="num">x{{item.number}}</text>
                   </view>
                   <view class="attr">{{ isEditCart ? languageMap['已选择:'] : ''}}{{item.specifications||''}}</view>
