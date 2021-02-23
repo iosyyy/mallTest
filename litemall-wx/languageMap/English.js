@@ -498,7 +498,7 @@ module.exports = {
   '250g': '250g',
   '标准': 'standard',
   '茶叶专卖': 'Shop Name: Tea Monopoly',
-  '绿茶类': 'Green Tea',
+  '绿茶': 'Green Tea',
   '雀舌茶': 'Bird\'s Tongue Tea',
   '市场价': 'Market price',
 
@@ -627,7 +627,7 @@ module.exports = {
   '黑芝麻、白芝麻组合': 'black sesame, white sesame combination',
   '炒熟': 'cooked',
   '密封防潮': 'Sealed against moisture',
-  '水产品类': 'Aquatic Products',
+  '水产品': 'Aquatic Products',
   '淡水产品': 'Freshwater products ',
   '广义的说，系指能生活在盐度为千分之三的淡水中的鱼类就可称为淡水鱼。 ': 'Broadly speaking, freshwater fish are those that can live in fresh water with a salinity of three parts per thousand',
   '狭义的说，系指在其生活史中部分阶段如只有「幼鱼期」或「成鱼期」，或是终其一生都必须在淡水域中渡过的鱼类。': 'In a narrow sense, refers to a fish that is only "juvenile" or "adult" for part of its life, or that must spend its entire life in a freshwater region:',
