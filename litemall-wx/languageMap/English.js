@@ -497,7 +497,7 @@ module.exports = {
   "确认收货成功！": "Confirm receipt of goods！",
   '250g': '250g',
   '标准': 'standard',
-  '茶叶专卖': 'Shop Name: Tea Monopoly',
+  '茶叶专卖': 'Tea Monopoly',
   '绿茶': 'Green Tea',
   '雀舌茶': 'Bird\'s Tongue Tea',
   '市场价': 'Market price',
