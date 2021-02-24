@@ -607,7 +607,8 @@ Page({
           let _res = res;
           if (_res.errno == 0) {
             wx.showToast({
-              title: this.data.languageMap['添加成功']
+              title: that.data.languageMap['添加成功'],
+              icon:'success'
             });
             that.setData({
               openAttr: !that.data.openAttr,
