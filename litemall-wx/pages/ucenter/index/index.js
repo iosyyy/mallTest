@@ -28,7 +28,7 @@ Page({
     })
     this.setData({
       userInfo: {
-        nickName: this.data.languageMap['点击登录'],
+        nickName: '点击登录',
         avatarUrl: '/static/images/my.png'
       },
     })
@@ -267,6 +267,11 @@ Page({
         text:app.globalData.languageMap[element]
       })
     });
+    if(!this.data.hasLogin){
+      this.setData({
+        'userInfo.nickName':app.globalData.languageMap['点击登录']
+      })
+    }
     this.setData({
       actionSheetHidden: true
     })
