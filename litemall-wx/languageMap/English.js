@@ -651,8 +651,8 @@ module.exports = {
   "商品现价": "commodity price",
   "种植": "to plant",
   "干燥、透气": "dry and breathable",
-  '特级野外生长 椴木小银耳 一年一采':'Super wild basswood tremella is collected once a year'
-
+  '特级野外生长 椴木小银耳 一年一采':'Super wild basswood tremella is collected once a year',
+  '主要由纤维素组成，作为主要的纺织工业原料。':'Composed mainly of cellulose, as the main textile industry raw materials.'
 
 
 
