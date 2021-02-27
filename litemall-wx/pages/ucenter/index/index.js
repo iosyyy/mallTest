@@ -26,9 +26,11 @@ Page({
     wx.setNavigationBarTitle({
       title: app.globalData.languageMap['个人中心'],
     })
+    console.log("Hello");
+    
     this.setData({
       userInfo: {
-        nickName: '点击登录',
+        nickName: app.globalData.languageMap['点击登录'],
         avatarUrl: '/static/images/my.png'
       },
     })
@@ -218,6 +220,7 @@ Page({
     });
   },
   exitLogin: function () {
+    
     wx.showModal({
       title: '',
       confirmColor: '#b4282d',
@@ -231,6 +234,7 @@ Page({
         app.globalData.hasLogin = false;
         wx.removeStorageSync('token');
         wx.removeStorageSync('userInfo');
+        
         wx.reLaunch({
           url: '/pages/index/index'
         });
