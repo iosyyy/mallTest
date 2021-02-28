@@ -152,7 +152,7 @@ Page({
             var k = that.data.languageMap['已选择：'] + _specificationList[0].valueList[0].value
             that.setData({
               checkedSpecText: _specificationList[0].valueList[0].value,
-              tmpSpecText: that.data.languageMap['已选择：'] + _specificationList[0].valueList[0].value
+              tmpSpecText: that.data.languageMap['已选择：'] + that.data.languageMap[_specificationList[0].valueList[0].value]
             });
           }
         }
