@@ -47,12 +47,10 @@ wx.setNavigationBarTitle({
 
       user.loginByWeixin(e.detail.userInfo).then(res => {
         app.globalData.hasLogin = true;
-        wx.hideToast({
-          complete: (res) => {},
-        })
         wx.navigateBack({
           delta: 1
         })
+        
       }).catch((err) => {
         app.globalData.hasLogin = false;
         util.showErrorToast(this.data.languageMapp['微信登录失败']);
