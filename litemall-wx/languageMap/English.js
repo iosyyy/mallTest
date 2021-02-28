@@ -180,7 +180,7 @@ module.exports = {
   '详细地址, 如街道、楼盘号等': 'Detailed address, such as street, building number, etc',
   '设为默认地址': 'Set to the default address',
   '保存': 'keep',
-  '确定': 'sure',
+  '确定': 'confim',
 
   //ucenter/aftersafe
   '退款商品': 'Refund Goods',
@@ -240,7 +240,7 @@ module.exports = {
   '我的拼团': 'My club',
   '地址管理': ' address management',
   '切换语言': 'Switching languages',
-  '取消': 'Cancel',
+  '取消': 'cancel',
   '必备工具': 'Essential tool',
   '帮助中心': 'Help Center',
   '意见反馈': 'Feedback',
@@ -652,7 +652,7 @@ module.exports = {
   "种植": "to plant",
   "干燥、透气": "dry and breathable",
   '特级野外生长 椴木小银耳 一年一采':'Super wild basswood tremella is collected once a year',
-  '主要由纤维素组成，作为主要的纺织工业原料。':'Composed mainly of cellulose, as the main textile industry raw materials.'
+  '主要由纤维素组成，作为主要的纺织工业原料。':'Composed mainly of cellulose, as the main textile industry raw materials.',
 
 
 

@@ -225,8 +225,8 @@ Page({
       title: '',
       confirmColor: '#b4282d',
       content: this.data.languageMap['退出登录？'],
-      cancelText:'cancel',
-      confirmText:'confim',	
+      cancelText:this.data.languageMap['取消'],
+      confirmText:this.data.languageMap['确定'],	
       cancelColor:'#808080',
       success: function (res) {
         if (!res.confirm) {
