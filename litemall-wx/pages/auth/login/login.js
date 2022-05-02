@@ -38,9 +38,8 @@ wx.setNavigationBarTitle({
        util.showErrorToast(this.data.languageMap['微信登录失败']);
       return;
     }
-    wx.showToast({
+    wx.showLoading({
       title: this.data.languageMap['正在登录中...'],
-      image:'../../../static/images/loading.gif ',
       mask:true
     })
     user.checkLogin().catch(() => {

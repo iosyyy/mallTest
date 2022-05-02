@@ -49,7 +49,6 @@
                     </execution>
                 </executions>
             </plugin>
-
             <plugin>
                 <artifactId>maven-resources-plugin</artifactId>
                 <executions>
@@ -83,7 +82,14 @@
                             </resources>
                         </configuration>
                     </execution>
+
                 </executions>
+                <configuration>
+                    <nonFilteredFileExtensions>
+                        <!-- 避免 https 证书文件被修改 -->
+                        <nonFilteredFileExtension>jks</nonFilteredFileExtension>
+                    </nonFilteredFileExtensions>
+                </configuration>
             </plugin>
         </plugins>
     </build>

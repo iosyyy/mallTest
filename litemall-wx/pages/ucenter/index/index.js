@@ -267,13 +267,6 @@ Page({
     wx.setNavigationBarTitle({
       title: app.globalData.languageMap['个人中心'],
     })
-    let arrTabBar=["首页","店铺","购物车","个人"]
-    arrTabBar.forEach((element,index) => {
-      wx.setTabBarItem({
-        index:index,
-        text:app.globalData.languageMap[element]
-      })
-    });
     if(!this.data.hasLogin){
       this.setData({
         'userInfo.nickName':app.globalData.languageMap['点击登录']

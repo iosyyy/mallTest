@@ -1,11 +1,11 @@
 // 以下是业务服务器API地址
 // 本机开发时使用
- var WxApiRoot = 'http://127.0.0.1:8080/wx/';
-// 局域网测试使用
-// var WxApiRoot = 'http://192.168.1.3:8080/wx/';
+// var WxApiRoot = 'http://127.0.0.1:8080/wx/';
+// 局域网测试使用69666666666666666666622222222222
+//var WxApiRoot = 'http://127.0.0.1:8080/wx/';
 // 云平台部署时使用
-// var WxApiRoot = 'http://122.51.199.160:8080/wx/';
-// 云平台上线时使用
+var WxApiRoot = 'https://wxapp.simplesay.top/wx/';
+// 云平台上线时使用是
 // var WxApiRoot = 'https://www.menethil.com.cn/wx/';
 
 module.exports = {
@@ -93,5 +93,5 @@ module.exports = {
   StorageUpload: WxApiRoot + 'storage/upload', //图片上传,
 
   UserIndex: WxApiRoot + 'user/index', //个人页面用户相关信息
-  IssueList: WxApiRoot + 'issue/list', //帮助信息
+  IssueList: WxApiRoot + '  ', //帮助信息
 };

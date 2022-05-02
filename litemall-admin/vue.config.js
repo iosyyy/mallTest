@@ -31,9 +31,12 @@ module.exports = {
   devServer: {
     port: port,
     open: true,
-    overlay: {
-      warnings: false,
-      errors: true
+    proxy: {
+      '/admin': {
+        target: 'https://wxapp.simplesay.top/', // 不能为空
+        ws: true,
+        changOrigin: true
+      }
     }
   },
   configureWebpack: {

@@ -565,7 +565,7 @@ module.exports = {
   '种植': 'Tech Planting',
   '低温干燥，不易虫霉变质，冷藏即可': 'Warm tips: low temperature drying, not easy to worm mildew, cold storage can be',
   '当归': 'Angelica',
-  '当归全身都是宝，每个部位都有其独特的功效，日常滋补圣品。': 'The whole body of angelica is a treasure, each part has its unique effect, daily nourishing holy product',
+  '日常滋补圣品': 'Daily nourishing holy products',
   '冰箱冷藏或者置于干燥阴凉处': 'Refrigerate or keep in a dry and cool place',
   '胖大海': 'Fat sea',
   '同仁堂胖大海润喉清肺效果极佳 ': 'Tongren Tang fat sea moisten throat clear lung effect is excellent ',
@@ -621,7 +621,7 @@ module.exports = {
   '重量': 'The weight of the',
   '花生果': 'Peanuts',
   '商品详细介绍': 'Product details',
-  '花生果带壳原味炒花生米坚果炒货休闲零食小吃干果年货': 'Peanuts with shell original flavor Fried peanuts, nuts Fried snacks, dried fruits ',
+  '休闲零食小吃': 'Recreation snacks snacks',
   '存放时避免阳光直射': 'Store out of direct sunlight',
   '熟芝麻': 'Cooked Sesame',
   '黑芝麻、白芝麻组合': 'black sesame, white sesame combination',
@@ -651,9 +651,11 @@ module.exports = {
   "商品现价": "commodity price",
   "种植": "to plant",
   "干燥、透气": "dry and breathable",
-  '特级野外生长 椴木小银耳 一年一采':'Super wild basswood tremella is collected once a year',
-  '主要由纤维素组成，作为主要的纺织工业原料。':'Composed mainly of cellulose, as the main textile industry raw materials.',
-  "规格":"specification",
+  '特级野外生长，椴木小银耳 一年一采': 'Super wild basswood tremella is collected once a year',
+  '主要由纤维素组成，作为主要的纺织工业原料。': 'Composed mainly of cellulose, as the main textile industry raw materials.',
+  "规格": "specification",
+  '评价滋补养生原料首选': 'Evaluation of the first choice of nourishing and health preserving raw materials',
+  '五谷杂粮，东北粗粮': 'northeast grains',
 
 
 
